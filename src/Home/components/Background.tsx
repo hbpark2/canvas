@@ -24,6 +24,8 @@ import Drawing17 from "../../Assets/drawing-17.jpg";
 import Bubble1 from "../../Assets/bubble1.jpg";
 import Bubble2 from "../../Assets/bubble2.jpg";
 import Bubble3 from "../../Assets/bubble3.jpg";
+import Moon1 from "../../Assets/moon.jpg";
+
 import { CircleAni, Loop, Loop2, RightToLeft } from "../../Styles/animation";
 import Noise from "../../Components/Common/Noise";
 import { useScroll } from "../../Hooks/Scroll";
@@ -35,7 +37,7 @@ const Container = styled.div`
 	top: 0;
 	height: 100vh;
 	background-color: #706260;
-	background-color: #4d5e65;
+	/* background-color: #4d5e65; */
 	/* background-color: #9a7951; */
 	/* background-color: #cf8c5f; */
 `;
@@ -52,6 +54,7 @@ const LoopContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: #4d5e65;
+	background-color: #706260;
 `;
 
 const LoopWrap = styled.div`
@@ -160,7 +163,8 @@ const ImageBox = styled.li`
 	margin: 0 5% 0 0;
 	list-style: none;
 	text-align: center;
-	background: url(${Bubble1}) center center;
+	/* background: url(${Bubble1}) center center; */
+	background: url(${Moon1}) center center;
 	background-size: cover;
 	filter: blur(2px);
 	transition: all 0.5s;
