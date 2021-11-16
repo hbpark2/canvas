@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const Container = styled.div<{ currentPosition?: string }>`
+const Container = styled.div<{
+	currentPosition?: string;
+}>`
 	pointer-events: none;
 	position: fixed;
 	top: 50%;
@@ -12,8 +14,15 @@ const Container = styled.div<{ currentPosition?: string }>`
 	height: 80px;
 	border: 1px solid #bababa;
 	transform: translate(-50%, -50%);
+	transform-origin: 50% 50%;
 	transition: transform 0.5s ease-in-out;
-	z-index: 100;
+
+	z-index: 999;
+	${({ currentPosition }) =>
+		currentPosition === "imgHover" &&
+		css`
+			transform: scale(1.5) translate(-35%, -35%);
+		`}
 
 	@media screen and (max-width: 767px) {
 		display: none;
@@ -28,12 +37,14 @@ const CursorDot = styled.i`
 	border-radius: 50%;
 	opacity: 1;
 	transform: translate(-50%, -50%);
-	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
-		-webkit-transform 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out transform 0.3s ease-in-out -webkit-transform
+		0.3s ease-in-out;
 	width: 8px;
 	height: 8px;
-	background-color: #5fc0d6;
-	z-index: 100;
+	/* background-color: #5fc0d6; */
+	background-color: #fff;
+	z-index: 999;
+	mix-blend-mode: difference;
 `;
 
 type PostionTypes = {
@@ -50,25 +61,23 @@ interface CursorProps {
 }
 const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 	const [position, setPosition] = useState<PostionTypes>({ x: -80, y: -80 });
-	const [tailPosition, setTailPosition] = useState<TailPostionTypes>({
-		x: "",
-		y: "",
-	});
+	let mouseX = -80;
+	let mouseY = -80;
 
 	const addEventListeners = (): void => {
-		document
-			.getElementById("content")
-			?.addEventListener("mousemove", onMouseMove);
+		document?.addEventListener("mousemove", onMouseMove);
+
+		tail();
 	};
 
 	const removeEventListeners = (): void => {
-		document
-			.getElementById("content")
-			?.removeEventListener("mousemove", onMouseMove);
+		document?.removeEventListener("mousemove", onMouseMove);
 	};
 
 	const onMouseMove = (e: MouseEvent): void => {
 		setPosition({ x: e.clientX, y: e.clientY });
+		mouseX = e.clientX;
+		mouseY = e.clientY;
 	};
 
 	const tail = () => {
@@ -76,16 +85,9 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 
 		const tail_x = parseInt(cursorTail.style?.left.replace("px", "")) || 0;
 		const tail_y = parseInt(cursorTail.style?.top.replace("px", "")) || 0;
-		// cursorTail.style.top = `${Math.round(
-		// 	tail_y + (position.y - tail_y) / 10
-		// )}px`;
-		// cursorTail.style.left = `${Math.round(
-		// 	tail_x + (position.x - tail_x) / 10
-		// )}px`;
-		setTailPosition({
-			x: `${Math.round(tail_x + (position.x - tail_x) / 10)}px`,
-			y: `${Math.round(tail_y + (position.y - tail_y) / 10)}px`,
-		});
+		cursorTail.style.top = `${Math.round(tail_y + (mouseY - tail_y) / 8)}px`;
+		cursorTail.style.left = `${Math.round(tail_x + (mouseX - tail_x) / 8)}px`;
+		requestAnimationFrame(tail);
 	};
 
 	useEffect(() => {
@@ -94,21 +96,12 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 		return () => removeEventListeners();
 	}, []);
 
-	useEffect(() => {
-		tail();
-	}, [position]);
-
 	return (
 		<>
 			<Container
 				className="cursor-tail"
 				role="cursor"
-				// currentPosition={currentPosition}
-				style={{
-					// transform: `translate(${tailPosition.x}, ${tailPosition.y})`,
-					left: `${tailPosition.x}`,
-					top: `${tailPosition.y}`,
-				}}
+				currentPosition={currentPosition}
 			/>
 			<CursorDot
 				style={{

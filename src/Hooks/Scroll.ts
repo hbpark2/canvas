@@ -7,13 +7,13 @@ export function useScroll() {
 		let mounted = true;
 
 		if (window.innerWidth > 767) {
-			window.addEventListener("scroll", () => {
+			document.addEventListener("scroll", () => {
 				if (mounted) {
 					setScrollY(window.pageYOffset);
 				}
 			});
 		} else {
-			window.addEventListener("touchstart", () => {
+			document.addEventListener("touchstart", () => {
 				if (mounted) {
 					setScrollY(window.pageYOffset);
 				}

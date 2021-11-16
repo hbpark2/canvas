@@ -21,6 +21,8 @@ import Drawing14 from "../../Assets/drawing-14.jpg";
 import Drawing15 from "../../Assets/drawing-15.jpg";
 import Drawing16 from "../../Assets/drawing-16.jpg";
 import Drawing17 from "../../Assets/drawing-17.jpg";
+import Drawing18 from "../../Assets/drawing-18.jpg";
+import Drawing19 from "../../Assets/drawing-19.jpg";
 import Bubble1 from "../../Assets/bubble1.jpg";
 import Bubble2 from "../../Assets/bubble2.jpg";
 import Bubble3 from "../../Assets/bubble3.jpg";
@@ -33,17 +35,20 @@ import { useScroll } from "../../Hooks/Scroll";
 SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 const Container = styled.div`
-	position: fixed;
+	position: absolute;
 	top: 0;
 	height: 100vh;
-	background-color: #706260;
-	/* background-color: #4d5e65; */
+	/* background-color: #706260; */
+	background-color: #4d5e65;
 	/* background-color: #9a7951; */
 	/* background-color: #cf8c5f; */
+	/* background-color: #000; */
 `;
 
 const Inner = styled.div`
-	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	/* overflow: hidden; */
 	animation-name: ${RightToLeft};
 	animation-duration: 2s;
 `;
@@ -54,7 +59,6 @@ const LoopContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: #4d5e65;
-	background-color: #706260;
 `;
 
 const LoopWrap = styled.div`
@@ -156,41 +160,54 @@ const ImageWrap = styled.ul`
 	padding: 0;
 `;
 
-const ImageBox = styled.li`
+const ImageBox = styled.li<{ invert: boolean }>`
 	display: inline-block;
 	width: calc(100vw / 2);
 	height: 80vh;
 	margin: 0 5% 0 0;
 	list-style: none;
 	text-align: center;
-	/* background: url(${Bubble1}) center center; */
-	background: url(${Moon1}) center center;
+	/* background: url(${Drawing19}) center center; */
+	background: url(${Bubble1}) center center;
 	background-size: cover;
-	filter: blur(2px);
 	transition: all 0.5s;
+
+	${({ invert }) =>
+		invert
+			? css`
+					filter: blur(2px) invert(0.8);
+			  `
+			: css`
+					filter: blur(2px);
+			  `};
 `;
-const Background: React.FC<{ scrollY: number }> = ({ scrollY }) => {
+
+interface BackgroundProps {
+	invert: boolean;
+	scrollY: number;
+}
+
+const Background: React.FC<BackgroundProps> = ({ scrollY, invert }) => {
 	const imgArr = [
 		{ src: "", alt: "" },
 		{ src: "", alt: "" },
 		{ src: "", alt: "" },
 		{ src: "", alt: "" },
 	];
+
 	return (
 		<Container>
 			<Inner>
-				{/* <FrontBox /> */}
-				{/* <BackBox scrl={scrollY} /> */}
 				<LoopContainer>
 					<LoopWrap>
 						<ImageWrap>
 							{imgArr.map((item, index) => {
-								return <ImageBox key={`img${index}`} />;
+								return <ImageBox key={`img${index}`} invert={invert} />;
 							})}
 						</ImageWrap>
 						<ImageWrap>
 							{imgArr.map((item, index) => {
-								return <ImageBox key={`img${index}`} />;
+								return <ImageBox key={`img${index}`} invert={invert} />;
 							})}
 						</ImageWrap>
 					</LoopWrap>
