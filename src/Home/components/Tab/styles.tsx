@@ -43,4 +43,10 @@ export const TabButton = styled.button`
 	font-size: 28px;
 	color: ${({ theme: { accentColor } }) => accentColor};
 	cursor: none;
+	transition: background 0.5s;
+	border-radius: 50%;
+	&:hover {
+		background-color: ${({ theme: { accentColor } }) => accentColor};
+		color: inherit;
+	}
 `;

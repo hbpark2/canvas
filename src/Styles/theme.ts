@@ -45,9 +45,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 	body::-webkit-scrollbar {
-	width: 10px;
+	width: 5px;
 	height:5px;
-	display: none;
+	/* display: none; */
 	}
 
 	body::-webkit-scrollbar-thumb {

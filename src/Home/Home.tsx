@@ -28,6 +28,7 @@ const Home = () => {
 			document.body?.classList.add("overflow-unset");
 		}
 	}, [loading]);
+
 	return (
 		<>
 			<ScrollCircle />
