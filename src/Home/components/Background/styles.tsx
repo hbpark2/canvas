@@ -24,7 +24,7 @@ import Bubble2 from "../../../Assets/bubble2.jpg";
 import Bubble3 from "../../../Assets/bubble3.jpg";
 import Moon1 from "../../../Assets/moon.jpg";
 import Noise from "../../../Components/Common/Noise";
-import { CircleAni, Loop, Loop2, RightToLeft } from "../../../Styles/animation";
+import { Loop, Loop2, RightToLeft } from "../../../Styles/animation";
 
 export const Container = styled.div`
 	position: absolute;
@@ -78,14 +78,14 @@ export const ImageWrap = styled.ul`
 	padding: 0;
 `;
 
-export const ImageBox = styled.li<{ invert: boolean }>`
+export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
 	display: inline-block;
 	width: calc(100vw / 2);
 	height: 80vh;
 	margin: 0 5% 0 0;
 	list-style: none;
 	text-align: center;
-	background: url(${Bubble1}) center center;
+	background: url(${({ bgImage }) => bgImage}) center center;
 	background-size: cover;
 	transition: all 0.5s;
 

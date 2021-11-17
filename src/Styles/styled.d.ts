@@ -6,7 +6,7 @@ declare module "styled-components" {
 		bgColor2: string;
 		bgColor3: string;
 		accentFont: string;
-		maingFontColor: string;
+		accentColor: string;
 		deviceScreen: { [T in "mobile" | "tablet" | "laptop"]: string };
 	}
 }

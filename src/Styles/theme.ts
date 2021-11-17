@@ -18,7 +18,7 @@ export const commonTheme: DefaultTheme = {
 	bgColor1: "#4d5e65",
 	bgColor2: "#706260",
 	bgColor3: "#9a7951",
-	maingFontColor: "#e4cbac",
+	accentColor: "#e4cbac",
 	accentFont: '"Cormorant Garamond", serif',
 	deviceScreen: device,
 };
@@ -26,10 +26,15 @@ export const commonTheme: DefaultTheme = {
 //global
 export const GlobalStyles = createGlobalStyle`
   ${reset}
+
+	body, html{
+		height:100%;
+	}
   body{
     font-family: 'Noto Sans KR', sans-serif;  
 		background-color:${(props) => props.theme.bgColor1};
 	}
+
   main{
     width: auto;
     transition: all .5s;
@@ -41,8 +46,26 @@ export const GlobalStyles = createGlobalStyle`
 
 	body::-webkit-scrollbar {
 	width: 10px;
+	height:5px;
 	display: none;
-}
+	}
+
+	body::-webkit-scrollbar-thumb {
+		background-color: rgba(255,255,255,0.7);
+		height: 20px;
+		border-radius: 10px;
+	}
+
+	body::-webkit-scrollbar-track {
+		background-color: rgba(0,0,0,0.1);
+	}
+
+	.overflow-hidden{
+		overflow:hidden;
+	}
+	.overflow-unset{
+		overflow:unset;
+	}
 
 .blind {
 	position: absolute;

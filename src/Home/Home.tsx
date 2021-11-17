@@ -1,67 +1,56 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Cursor from "../Components/Common/Cursor";
 import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
 import Bubble2 from "../Assets/bubble1.jpg";
-import {
-	CircleBox,
-	Container,
-	Image,
-	ImageWrap,
-	ImgSection,
-	IntroSection,
-	IntroCenter,
-	IntroTop,
-	IntroCenterText,
-	Line,
-	TextWrap,
-} from "./styles";
+import { Container, Image, ImageWrap, ImgSection, TextWrap } from "./styles";
+import IntroBackground from "./components/IntroBackground/IntroBackground";
+import Tab from "./components/Tab/Tab";
+import { CurrentContext } from "../Context/ContextStore";
 
 const Home = () => {
-	const [currentPosition, setCurrentPosition] = useState("");
-	const [invert, setInvert] = useState(false);
+	const { currentPosition, invert, changeCursorState, bgImage } = useContext(CurrentContext);
+	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
-	const onImageMouseOn = () => {
-		setCurrentPosition("imgHover");
-		setInvert(true);
-	};
-	const onImageMouseOut = () => {
-		setInvert(false);
-		setCurrentPosition("");
-	};
-	console.log(scrollY);
 
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false);
+		}, 2000);
+	}, []);
+
+	useEffect(() => {
+		if (loading) {
+			document.body?.classList.add("overflow-hidden");
+		} else {
+			document.body?.classList.remove("overflow-hidden");
+			document.body?.classList.add("overflow-unset");
+		}
+	}, [loading]);
 	return (
 		<>
 			<ScrollCircle />
 			<Cursor currentPosition={currentPosition} />
 			<Container id="content">
-				<CircleBox scrl={scrollY} />
-				<IntroSection scrl={scrollY}>
-					<IntroTop scrl={scrollY}>
-						<span>Selected Art&amp;Works</span>
-						<Line />
-						<span>(01-04)</span>
-					</IntroTop>
-					<IntroCenter scrl={scrollY}>
-						<IntroCenterText scrl={scrollY}>7ransis7or</IntroCenterText>
-					</IntroCenter>
-				</IntroSection>
-				{scrollY > 1000 && (
-					<ImgSection>
-						<ImageWrap>
-							<Image
-								src={Bubble2}
-								alt=""
-								onMouseOver={onImageMouseOn}
-								onMouseOut={onImageMouseOut}
-							/>
-						</ImageWrap>
-						<TextWrap></TextWrap>
-					</ImgSection>
+				{!loading && (
+					<>
+						<IntroBackground scrollY={scrollY} />
+						<Tab />
+						<ImgSection scrl={scrollY}>
+							<ImageWrap>
+								<Image
+									src={Bubble2}
+									alt=""
+									onMouseOver={() => changeCursorState("biggerInvert")}
+									onMouseOut={() => changeCursorState("")}
+								/>
+							</ImageWrap>
+							<TextWrap></TextWrap>
+						</ImgSection>
+					</>
 				)}
-				<Background scrollY={scrollY} invert={invert} />
+				<Background scrollY={scrollY} invert={invert} bgImage={bgImage} />
 			</Container>
 		</>
 	);

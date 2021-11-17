@@ -19,9 +19,9 @@ const CursorTail = styled.div<{
 
 	z-index: 999;
 	${({ currentPosition }) =>
-		currentPosition === "imgHover" &&
+		currentPosition === "bigger" &&
 		css`
-			transform: scale(1.5) translate(-35%, -35%);
+			transform: scale(1.8) translate(-30%, -30%);
 		`}
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {

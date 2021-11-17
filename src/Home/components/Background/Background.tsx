@@ -9,10 +9,13 @@ SwiperCore.use([Navigation, Pagination, EffectFade]);
 interface BackgroundProps {
 	invert: boolean;
 	scrollY: number;
+	bgImage: string;
 }
 
-const Background: React.FC<BackgroundProps> = ({ scrollY, invert }) => {
+const Background: React.FC<BackgroundProps> = ({ scrollY, invert, bgImage }) => {
 	const imgArr = [
+		{ src: "", alt: "" },
+		{ src: "", alt: "" },
 		{ src: "", alt: "" },
 		{ src: "", alt: "" },
 	];
@@ -24,12 +27,12 @@ const Background: React.FC<BackgroundProps> = ({ scrollY, invert }) => {
 					<LoopWrap>
 						<ImageWrap>
 							{imgArr.map((item, index) => {
-								return <ImageBox key={`img${index}`} invert={invert} />;
+								return <ImageBox key={`img${index}`} invert={invert} bgImage={bgImage} />;
 							})}
 						</ImageWrap>
 						<ImageWrap>
 							{imgArr.map((item, index) => {
-								return <ImageBox key={`img${index}`} invert={invert} />;
+								return <ImageBox key={`img${index}`} invert={invert} bgImage={bgImage} />;
 							})}
 						</ImageWrap>
 					</LoopWrap>
