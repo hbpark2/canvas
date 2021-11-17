@@ -1,9 +1,8 @@
-import { CircleBox, IntroSection, IntroCenter, IntroTop, IntroCenterText, Line } from "./styles";
+import { IntroSection, IntroCenter, IntroTop, IntroCenterText, Line } from "./styles";
 
 const IntroBackground: React.FC = () => {
 	return (
 		<>
-			<CircleBox />
 			<IntroSection>
 				<IntroTop>
 					<span>Selected Art&amp;Works</span>

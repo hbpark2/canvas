@@ -64,8 +64,8 @@ export const SlideUp = keyframes`
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate3d(0, -15px, 0);
-            transform: translate3d(0, -15px, 0);
+    -webkit-transform: translate3d(0, -30px, 0);
+            transform: translate3d(0, -30px, 0);
   }
 `;
 export const CircleAni = keyframes`

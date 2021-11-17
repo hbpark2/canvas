@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import SwiperCore, { Navigation, Pagination, EffectFade } from "swiper";
-import "swiper/swiper-bundle.css";
-import { Container, ImageBox, ImageWrap, Inner, LoopContainer, LoopWrap } from "./styles";
+import {
+	CircleBox,
+	Container,
+	ImageBox,
+	ImageWrap,
+	Inner,
+	LoopContainer,
+	LoopWrap,
+} from "./styles";
 import Noise from "../../../Components/Common/Noise";
-
-SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 interface BackgroundProps {
 	invert: boolean;
@@ -22,6 +25,7 @@ const Background: React.FC<BackgroundProps> = ({ scrollY, invert, bgImage }) => 
 
 	return (
 		<Container>
+			<CircleBox />
 			<Inner>
 				<LoopContainer>
 					<LoopWrap>

@@ -1,29 +1,13 @@
 import styled, { css } from "styled-components";
 
 export const TabContainer = styled.ul<{ scrl: number }>`
+	position: fixed;
+	top: 50%;
 	left: calc(50% + 400px);
 	transform: translate(-50%, -50%);
 	transition: filter 0.5s;
-	z-index: 1;
-
-	${({ scrl }) =>
-		scrl > 150
-			? css`
-					filter: blur(0.1px);
-			  `
-			: css`
-					filter: blur(1.5px);
-			  `}
-	${({ scrl }) =>
-		scrl > 800
-			? css`
-					position: absolute;
-					top: 1300px;
-			  `
-			: css`
-					position: fixed;
-					top: 50%;
-			  `}
+	z-index: 5;
+	filter: blur(0.1px);
 `;
 
 export const TabList = styled.li`

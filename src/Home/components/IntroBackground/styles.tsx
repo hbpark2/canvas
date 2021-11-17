@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { CircleAni, FadeIn, SlideUp } from "../../../Styles/animation";
 
 export const IntroSection = styled.article`
-	position: fixed;
+	position: absolute;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -50,71 +50,6 @@ export const Line = styled.i`
 	height: 1px;
 	background-color: #e4cbac;
 	margin: 0 10px;
-`;
-
-export const CircleBox = styled.i`
-	position: fixed;
-	display: block;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border: 1px solid #e4cbac;
-	z-index: 5;
-	width: 500px;
-	height: 500px;
-	border-radius: 50%;
-	filter: blur(1.5px);
-	animation-name: ${FadeIn};
-	animation-duration: 1s;
-	filter: blur(1px);
-
-	&::after {
-		position: absolute;
-		top: -2px;
-		left: -2px;
-		display: block;
-		width: 500px;
-		height: 500px;
-		content: "";
-		border: 1px solid #e4cbac;
-		border-radius: 100% 70% 80% 60% / 100% 70% 80% 60%;
-		animation-name: ${CircleAni};
-		animation-duration: 3s;
-		animation-iteration-count: infinite;
-		animation-fill-mode: inherit;
-		animation-timing-function: linear;
-		opacity: 0.8;
-	}
-
-	&::before {
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: block;
-		width: 500px;
-		height: 500px;
-		content: "";
-		border: 1px solid #e4cbac;
-		border-radius: 100% 70% 80% 60% / 100% 70% 80% 60%;
-		animation-name: ${CircleAni};
-		animation-duration: 3s;
-		animation-iteration-count: infinite;
-		animation-fill-mode: inherit;
-		animation-timing-function: linear;
-		animation-direction: reverse;
-		opacity: 0.8;
-		transition: opacity 1s;
-	}
-
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		width: 300px;
-		height: 300px;
-		&::after,
-		&::before {
-			width: 300px;
-			height: 300px;
-		}
-	}
 `;
 
 export const IntroCenter = styled.p`

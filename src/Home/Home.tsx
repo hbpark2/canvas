@@ -3,14 +3,17 @@ import Cursor from "../Components/Common/Cursor";
 import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
-
 import { Container } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import Tab from "./components/Tab/Tab";
 import { CurrentContext } from "../Context/ContextStore";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, EffectFade, Mousewheel, Keyboard } from "swiper";
+import "swiper/swiper-bundle.css";
+SwiperCore.use([Navigation, Pagination, EffectFade, Mousewheel, Keyboard]);
 
 const Home = () => {
-	const { currentPosition, invert, changeCursorState, bgImage } = useContext(CurrentContext);
+	const { currentPosition, invert, bgImage } = useContext(CurrentContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
 
@@ -33,15 +36,34 @@ const Home = () => {
 		<>
 			<ScrollCircle />
 			<Cursor currentPosition={currentPosition} />
-			<Container id="content">
-				{!loading && (
-					<>
-						<IntroBackground />
-						<Tab />
-					</>
-				)}
-				<Background scrollY={scrollY} invert={invert} bgImage={bgImage} />
-			</Container>
+			<Tab />
+			<Swiper
+				pagination={{ clickable: true }}
+				// loop
+				direction="vertical"
+				mousewheel={true}
+				keyboard={true}
+				speed={1000}
+				a11y={{
+					prevSlideMessage: "previousSlide",
+					nextSlideMessage: "nextSlide",
+				}}
+				style={{
+					width: "100vw",
+					height: "100vh",
+				}}
+				effect="fade"
+				fadeEffect={{ crossFade: true }}
+				onSlideChange={(e) => console.log(e.activeIndex)}
+			>
+				<SwiperSlide>
+					{({ isActive }) => <Container>{isActive && <IntroBackground />}</Container>}
+				</SwiperSlide>
+				<SwiperSlide>
+					{({ isActive }) => <Container>{isActive && <IntroBackground />}</Container>}
+				</SwiperSlide>
+			</Swiper>
+			<Background scrollY={scrollY} invert={invert} bgImage={bgImage} />
 		</>
 	);
 };

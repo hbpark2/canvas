@@ -24,7 +24,7 @@ import Bubble2 from "../../../Assets/bubble2.jpg";
 import Bubble3 from "../../../Assets/bubble3.jpg";
 import Moon1 from "../../../Assets/moon.jpg";
 import Noise from "../../../Components/Common/Noise";
-import { Loop, Loop2, RightToLeft } from "../../../Styles/animation";
+import { CircleAni, FadeIn, Loop, Loop2, RightToLeft } from "../../../Styles/animation";
 
 export const Container = styled.div`
 	position: absolute;
@@ -100,5 +100,78 @@ export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		width: 75vw;
+	}
+`;
+
+export const CircleBox = styled.i`
+	position: fixed;
+	display: block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #e4cbac;
+	z-index: 5;
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	filter: blur(1.5px);
+	animation-name: ${FadeIn};
+	animation-duration: 1s;
+	filter: blur(1px);
+
+	&::after {
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		display: block;
+		width: 500px;
+		height: 500px;
+		content: "";
+		border: 1px solid #e4cbac;
+		border-radius: 100% 70% 80% 60% / 100% 70% 80% 60%;
+		animation-name: ${CircleAni};
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: inherit;
+		animation-timing-function: linear;
+		opacity: 0.8;
+	}
+
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 500px;
+		height: 500px;
+		content: "";
+		border: 1px solid #e4cbac;
+		border-radius: 100% 70% 80% 60% / 100% 70% 80% 60%;
+		animation-name: ${CircleAni};
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: inherit;
+		animation-timing-function: linear;
+		animation-direction: reverse;
+		opacity: 0.8;
+		transition: opacity 1s;
+	}
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		width: 300px;
+		height: 300px;
+		&::after,
+		&::before {
+			width: 300px;
+			height: 300px;
+		}
+	}
+`;
+
+export const IntroCenter = styled.p`
+	overflow: hidden;
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		transform: translateY(-30px);
 	}
 `;
