@@ -3,8 +3,8 @@ import Cursor from "../Components/Common/Cursor";
 import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
-import Bubble2 from "../Assets/bubble1.jpg";
-import { Container, Image, ImageWrap, ImgSection, TextWrap } from "./styles";
+
+import { Container } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import Tab from "./components/Tab/Tab";
 import { CurrentContext } from "../Context/ContextStore";
@@ -28,6 +28,7 @@ const Home = () => {
 			document.body?.classList.add("overflow-unset");
 		}
 	}, [loading]);
+
 	return (
 		<>
 			<ScrollCircle />
@@ -35,19 +36,8 @@ const Home = () => {
 			<Container id="content">
 				{!loading && (
 					<>
-						<IntroBackground scrollY={scrollY} />
+						<IntroBackground />
 						<Tab />
-						<ImgSection scrl={scrollY}>
-							<ImageWrap>
-								<Image
-									src={Bubble2}
-									alt=""
-									onMouseOver={() => changeCursorState("biggerInvert")}
-									onMouseOut={() => changeCursorState("")}
-								/>
-							</ImageWrap>
-							<TextWrap></TextWrap>
-						</ImgSection>
 					</>
 				)}
 				<Background scrollY={scrollY} invert={invert} bgImage={bgImage} />

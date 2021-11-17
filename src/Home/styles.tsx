@@ -4,7 +4,7 @@ import { CircleAni, FadeIn } from "../Styles/animation";
 export const Container = styled.main`
 	position: relative;
 	width: 100%;
-	min-height: 250vh;
+	height: 100vh;
 	z-index: 100;
 `;
 

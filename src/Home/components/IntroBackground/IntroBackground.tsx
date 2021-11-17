@@ -1,17 +1,17 @@
 import { CircleBox, IntroSection, IntroCenter, IntroTop, IntroCenterText, Line } from "./styles";
 
-const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
+const IntroBackground: React.FC = () => {
 	return (
 		<>
-			<CircleBox scrl={scrollY} />
-			<IntroSection scrl={scrollY}>
-				<IntroTop scrl={scrollY}>
+			<CircleBox />
+			<IntroSection>
+				<IntroTop>
 					<span>Selected Art&amp;Works</span>
 					<Line />
 					<span>(01-04)</span>
 				</IntroTop>
-				<IntroCenter scrl={scrollY}>
-					<IntroCenterText scrl={scrollY}>7ransis7or</IntroCenterText>
+				<IntroCenter>
+					<IntroCenterText>7ransis7or</IntroCenterText>
 				</IntroCenter>
 			</IntroSection>
 		</>
