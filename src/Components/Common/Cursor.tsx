@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
-const Container = styled.div<{
+const CursorTail = styled.div<{
 	currentPosition?: string;
 }>`
 	pointer-events: none;
@@ -24,7 +24,7 @@ const Container = styled.div<{
 			transform: scale(1.5) translate(-35%, -35%);
 		`}
 
-	@media screen and (max-width: 767px) {
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		display: none;
 	}
 `;
@@ -37,23 +37,20 @@ const CursorDot = styled.i`
 	border-radius: 50%;
 	opacity: 1;
 	transform: translate(-50%, -50%);
-	transition: opacity 0.3s ease-in-out transform 0.3s ease-in-out -webkit-transform
-		0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out transform 0.3s ease-in-out -webkit-transform 0.3s ease-in-out;
 	width: 8px;
 	height: 8px;
-	/* background-color: #5fc0d6; */
 	background-color: #fff;
 	z-index: 999;
 	mix-blend-mode: difference;
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		display: none;
+	}
 `;
 
 type PostionTypes = {
 	x: number;
 	y: number;
-};
-type TailPostionTypes = {
-	x: string;
-	y: string;
 };
 
 interface CursorProps {
@@ -98,11 +95,7 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 
 	return (
 		<>
-			<Container
-				className="cursor-tail"
-				role="cursor"
-				currentPosition={currentPosition}
-			/>
+			<CursorTail className="cursor-tail" role="cursor" currentPosition={currentPosition} />
 			<CursorDot
 				style={{
 					left: `${position.x}px`,

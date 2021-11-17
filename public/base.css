@@ -244,26 +244,3 @@ button {
 	font-family: "Noto Sans KR", sans-serif;
 	background-color: inherit;
 }
-
-body::-webkit-scrollbar {
-	width: 10px;
-	display: none;
-}
-
-/* body::-webkit-scrollbar-thumb {
-	background-color: #333;
-	height: 20px;
-	border-radius: 10px;
-}
-
-body::-webkit-scrollbar-track {
-	background-color: #999;
-} */
-
-.blind {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	clip: rect(0 0 0 0);
-	overflow: hidden;
-}

@@ -15,21 +15,11 @@ const device = {
 };
 
 export const commonTheme: DefaultTheme = {
-	keyBlue: "#4a99c3",
-	keyDeepBlue: "#0b547a",
-	black: "#252825",
-	headerBg: "rgba(37, 40, 37,0.5)",
-	white: "#ffffff",
-	cream: "#e5e5e1",
-	gray: "rgba(107 ,108 ,106 , 1)",
-	beige: "#b2aca2",
-	headerText: "#ffffff",
-	fontSizeS: "12px",
-	fontSizeM: "14px",
-	fontSizeL: "18px;",
-	fontSizeXL: "22px",
-	fontSizeXXL: "28px",
-	fontSizeXXXL: "48px",
+	bgColor1: "#4d5e65",
+	bgColor2: "#706260",
+	bgColor3: "#9a7951",
+	maingFontColor: "#e4cbac",
+	accentFont: '"Cormorant Garamond", serif',
 	deviceScreen: device,
 };
 
@@ -37,19 +27,29 @@ export const commonTheme: DefaultTheme = {
 export const GlobalStyles = createGlobalStyle`
   ${reset}
   body{
-    /* background-color:${(props) => props.theme.black}; */
     font-family: 'Noto Sans KR', sans-serif;  
-}
+		background-color:${(props) => props.theme.bgColor1};
+	}
   main{
     width: auto;
     transition: all .5s;
   }
 
-  
   a {
     text-decoration: none;
   }
 
+	body::-webkit-scrollbar {
+	width: 10px;
+	display: none;
+}
 
+.blind {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
 
 `;
