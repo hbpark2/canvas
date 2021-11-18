@@ -17,8 +17,11 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 					filter: blur(1.5px);
 			  `};
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		display: none;
+	}
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		left: calc(50% + 900px);
 	}
 `;
 
@@ -27,6 +30,10 @@ export const TabList = styled.li`
 	align-items: center;
 	margin: 15px 0;
 	word-break: keep-all;
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		margin: 40px 0;
+		font-size: 36px;
+	}
 `;
 
 export const TabSpan = styled.span`
@@ -34,6 +41,10 @@ export const TabSpan = styled.span`
 	margin-left: 10px;
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	color: ${({ theme: { accentColor } }) => accentColor};
+	font-weight: 700;
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		margin-left: 30px;
+	}
 `;
 
 export const TabButton = styled.button`
@@ -54,5 +65,10 @@ export const TabButton = styled.button`
 	&:hover {
 		background-color: ${({ theme: { accentColor } }) => accentColor};
 		color: inherit;
+	}
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		width: 120px;
+		height: 120px;
+		font-size: 52px;
 	}
 `;

@@ -30,7 +30,7 @@ const Tab = () => {
 						onMouseOut={() => changeCursorState("")}
 					>
 						<TabButton onClick={() => onTabClick(item)}>0{index + 1}</TabButton>
-						{/* <TabSpan>{item.text}</TabSpan> */}
+						<TabSpan>{item.text}</TabSpan>
 					</TabList>
 				);
 			})}

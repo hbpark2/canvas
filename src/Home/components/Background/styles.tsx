@@ -34,7 +34,7 @@ export const Container = styled.div`
 	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		overflow-x: hidden;
 	}
 `;
@@ -45,7 +45,7 @@ export const Inner = styled.div`
 	animation-name: ${RightToLeft};
 	animation-duration: 2s;
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		width: 80vw;
 		overflow: hidden;
 		animation: none;
@@ -111,7 +111,7 @@ export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
 					filter: blur(2px);
 			  `};
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		width: 75vw;
 		height: 550px;
 	}

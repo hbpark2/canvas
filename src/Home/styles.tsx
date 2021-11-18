@@ -6,7 +6,7 @@ export const Container = styled.main`
 	width: 100%;
 	min-height: 250vh;
 	z-index: 100;
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		min-height: 100vh;
 	}
 `;
@@ -21,12 +21,11 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
 
-	@media screen and (min-width: 640px) {
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 		${({ scrl }) =>
 			scrl > 800
 				? css`
 						opacity: 1;
-						/* top: 800px; */
 				  `
 				: css`
 						opacity: 0;
@@ -34,8 +33,17 @@ export const ImgSection = styled.article<{ scrl: number }>`
 				  `}
 	}
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		/* top: 100vh; */
+	// 4K WIDEPC
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+		${({ scrl }) =>
+			scrl > 800
+				? css`
+						opacity: 1;
+				  `
+				: css`
+						opacity: 0;
+						top: 2600px;
+				  `}
 	}
 `;
 
@@ -58,7 +66,7 @@ export const Image = styled.img`
 		filter: blur(0px);
 	}
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		width: 55%;
 		opacity: 1;
 		filter: blur(0px);

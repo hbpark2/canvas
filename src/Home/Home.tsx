@@ -34,11 +34,11 @@ const Home = () => {
 			<ScrollCircle />
 			<Cursor currentPosition={currentPosition} />
 			<Background />
-			<Container id="content">
+			<Container>
 				{!loading && (
 					<>
 						<IntroBackground scrollY={scrollY} />
-						<ImgSection scrl={scrollY}>
+						<ImgSection scrl={scrollY} aria-hidden={!loading}>
 							<ImageWrap>
 								<Image
 									src={Bubble2}
@@ -49,7 +49,7 @@ const Home = () => {
 							</ImageWrap>
 							<TextWrap></TextWrap>
 						</ImgSection>
-						<ImgSection scrl={scrollY}>
+						<ImgSection scrl={scrollY} aria-hidden={!loading}>
 							<ImageWrap>
 								<Image
 									src={Bubble2}

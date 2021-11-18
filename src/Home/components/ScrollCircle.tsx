@@ -21,7 +21,7 @@ const Container = styled.i`
 	letter-spacing: 1.2em;
 	transform-origin: 50% 50%;
 	animation: ${RadiusAni} 10s infinite linear;
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		letter-spacing: 0.8em;
 		left: 10px;
 		bottom: 10px;
@@ -38,7 +38,7 @@ const SvgContainer = styled.svg`
 		font-size: 24px;
 	}
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		width: 150px;
 		height: 150px;
 		path {

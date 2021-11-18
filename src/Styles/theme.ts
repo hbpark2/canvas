@@ -3,15 +3,23 @@ import reset from "styled-reset";
 
 // Media query
 const deviceSizes = {
-	mobile: "639px",
-	tablet: "767px",
-	laptop: "1023px",
+	mobile: 639,
+	tablet: 767,
+	laptop: 1023,
+	wide: 1920,
 };
 
-const device = {
-	mobile: `screen and (max-width: ${deviceSizes.mobile})`,
-	tablet: `screen and (max-width: ${deviceSizes.tablet})`,
-	laptop: `screen and (max-width: ${deviceSizes.laptop})`,
+const deviceMax = {
+	mobile: `screen and (max-width: ${deviceSizes.mobile}px)`,
+	tablet: `screen and (max-width: ${deviceSizes.tablet}px)`,
+	laptop: `screen and (max-width: ${deviceSizes.laptop}px)`,
+};
+
+const deviceMin = {
+	mobile: `screen and (min-width: ${deviceSizes.mobile + 1}px)`,
+	tablet: `screen and (min-width: ${deviceSizes.tablet + 1}px)`,
+	laptop: `screen and (min-width: ${deviceSizes.laptop + 1}px)`,
+	wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
 };
 
 export const commonTheme: DefaultTheme = {
@@ -20,7 +28,8 @@ export const commonTheme: DefaultTheme = {
 	bgColor3: "#9a7951",
 	accentColor: "#e4cbac",
 	accentFont: '"Cormorant Garamond", serif',
-	deviceScreen: device,
+	deviceScreenMax: deviceMax,
+	deviceScreenMin: deviceMin,
 };
 
 export const brownTheme: DefaultTheme = {
@@ -29,7 +38,8 @@ export const brownTheme: DefaultTheme = {
 	bgColor3: "#706260",
 	accentColor: "#7B979E",
 	accentFont: '"Cormorant Garamond", serif',
-	deviceScreen: device,
+	deviceScreenMax: deviceMax,
+	deviceScreenMin: deviceMin,
 };
 
 //global

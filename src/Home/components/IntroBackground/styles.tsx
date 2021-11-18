@@ -17,26 +17,6 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
 	transition: border-color 0.5s;
-	@media screen and (min-width: 640px) {
-		${({ scrl }) =>
-			scrl > 300
-				? css`
-						filter: blur(0.5px);
-				  `
-				: css`
-						filter: blur(1.5px);
-				  `}
-
-		${({ scrl }) =>
-			scrl > 800
-				? css`
-						position: relative;
-						margin-top: 1300px;
-				  `
-				: css`
-						position: fixed;
-				  `}
-	}
 
 	&::after {
 		position: absolute;
@@ -55,7 +35,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		animation-timing-function: linear;
 		transition: opacity 1s, border-color 0.5s;
 
-		@media screen and (min-width: 640px) {
+		@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 			${({ scrl }) =>
 				scrl > 50
 					? css`
@@ -84,7 +64,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		animation-timing-function: linear;
 		animation-direction: reverse;
 		transition: opacity 1s, border-color 0.5s;
-		@media screen and (min-width: 640px) {
+		@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 			${({ scrl }) =>
 				scrl > 100
 					? css`
@@ -96,7 +76,8 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		}
 	}
 
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	// MOBILE
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		position: relative;
 		left: 0;
 		transform: none;
@@ -108,6 +89,38 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		&::before {
 			width: 300px;
 			height: 300px;
+		}
+	}
+
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+		${({ scrl }) =>
+			scrl > 300
+				? css`
+						filter: blur(0.5px);
+				  `
+				: css`
+						filter: blur(1.5px);
+				  `}
+
+		${({ scrl }) =>
+			scrl > 800
+				? css`
+						position: relative;
+						margin-top: 1300px;
+				  `
+				: css`
+						position: fixed;
+				  `}
+	}
+
+	// 4K WIDE PC
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		width: 1200px;
+		height: 1200px;
+		&::after,
+		&::before {
+			width: 1200px;
+			height: 1200px;
 		}
 	}
 `;
@@ -142,7 +155,18 @@ export const IntroTop = styled.div<{ scrl: number }>`
 	span:last-of-type {
 		flex: 0.6;
 	}
-	@media screen and (min-width: 640px) {
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		width: 100%;
+		transform: translateY(-50px);
+		filter: none;
+		animation: ${SlideUpMoTop} 2s;
+		span:last-of-type {
+			flex: 1.6;
+		}
+	}
+
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 		${({ scrl }) =>
 			scrl > 50
 				? css`
@@ -156,15 +180,10 @@ export const IntroTop = styled.div<{ scrl: number }>`
 						transform: translateY(100px);
 				  `}
 	}
-
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		width: 100%;
-		transform: translateY(-50px);
-		filter: none;
-		animation: ${SlideUpMoTop} 2s;
-		span:last-of-type {
-			flex: 1.6;
-		}
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		width: 1400px;
+		font-size: 70px;
+		transform: translateY(-200px);
 	}
 `;
 
@@ -178,11 +197,15 @@ export const Line = styled.i`
 
 export const IntroCenter = styled.p<{ scrl: number }>`
 	overflow: hidden;
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		opacity: 0;
 		animation: ${SlideUpMo} 2s;
 		animation-delay: 1s;
 		animation-fill-mode: both;
+	}
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		font-size: 300px;
+		transform: translateY(-110px);
 	}
 `;
 
@@ -195,7 +218,14 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 	color: ${({ theme: { accentColor } }) => accentColor};
 	transform: translateY(-30px);
 	transition: opacity 1s, transform 1s, color 0.5s;
-	@media screen and (min-width: 640px) {
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		font-size: 80px;
+		vertical-align: top;
+		filter: none;
+	}
+
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 		${({ scrl }) =>
 			scrl > 300
 				? css`
@@ -209,10 +239,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 						filter: blur(1.5px);
 				  `};
 	}
-
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		font-size: 80px;
-		vertical-align: top;
-		filter: none;
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		font-size: 300px;
 	}
 `;
