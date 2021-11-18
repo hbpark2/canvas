@@ -6,11 +6,10 @@ import ScrollCircle from "./components/ScrollCircle";
 import Bubble2 from "../Assets/bubble1.jpg";
 import { Container, Image, ImageWrap, ImgSection, TextWrap } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
-import Tab from "./components/Tab/Tab";
 import { CurrentContext } from "../Context/ContextStore";
 
 const Home = () => {
-	const { currentPosition, changeCursorState } = useContext(CurrentContext);
+	const { currentPosition, changeCursorState, menuOpen } = useContext(CurrentContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
 
@@ -21,13 +20,14 @@ const Home = () => {
 	}, []);
 
 	useEffect(() => {
-		if (loading) {
+		if (loading || menuOpen) {
+			document.body?.classList.remove("overflow-unset");
 			document.body?.classList.add("overflow-hidden");
 		} else {
 			document.body?.classList.remove("overflow-hidden");
 			document.body?.classList.add("overflow-unset");
 		}
-	}, [loading]);
+	}, [loading, menuOpen]);
 
 	return (
 		<>

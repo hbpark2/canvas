@@ -20,6 +20,7 @@ type ValueType = {
 	setTabState: (T: TabStateType) => void;
 	setCurrentPosition: (T: CursorState) => void;
 	changeCursorState: (T: CursorState) => void;
+	onTabClick: (T: TabStateType) => void;
 };
 
 export const CurrentContext = createContext<ValueType>({
@@ -32,6 +33,7 @@ export const CurrentContext = createContext<ValueType>({
 	setTabState: () => {},
 	setCurrentPosition: () => {},
 	changeCursorState: () => {},
+	onTabClick: () => {},
 });
 
 export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
@@ -56,6 +58,10 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 		}
 	};
 
+	const onTabClick = (theme: TabStateType) => {
+		setTabState({ theme: theme.theme, bgImage: theme.bgImage });
+	};
+
 	const value: ValueType = {
 		menuOpen,
 		setMenuOpen,
@@ -66,6 +72,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 		setTabState,
 		setCurrentPosition,
 		changeCursorState,
+		onTabClick,
 	};
 
 	return <CurrentContext.Provider value={value}>{children}</CurrentContext.Provider>;
