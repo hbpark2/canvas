@@ -10,8 +10,7 @@ import Tab from "./components/Tab/Tab";
 import { CurrentContext } from "../Context/ContextStore";
 
 const Home = () => {
-	const { currentPosition, invert, changeCursorState, bgImage, themeState, setThemeState } =
-		useContext(CurrentContext);
+	const { currentPosition, changeCursorState, setThemeState } = useContext(CurrentContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
 
@@ -63,7 +62,7 @@ const Home = () => {
 						</ImgSection>
 					</>
 				)}
-				<Background scrollY={scrollY} invert={invert} bgImage={bgImage} />
+				<Background />
 			</Container>
 		</>
 	);

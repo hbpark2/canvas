@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SwiperCore, { Navigation, Pagination, EffectFade } from "swiper";
 import "swiper/swiper-bundle.css";
 import { Container, ImageBox, ImageWrap, Inner, LoopContainer, LoopWrap } from "./styles";
 import Noise from "../../../Components/Common/Noise";
+import { CurrentContext } from "../../../Context/ContextStore";
 
 SwiperCore.use([Navigation, Pagination, EffectFade]);
 
-interface BackgroundProps {
-	invert: boolean;
-	scrollY: number;
-	bgImage: string;
-}
+const Background: React.FC = () => {
+	const { invert, bgImage } = useContext(CurrentContext);
 
-const Background: React.FC<BackgroundProps> = ({ scrollY, invert, bgImage }) => {
 	const imgArr = [
 		{ src: "", alt: "" },
 		{ src: "", alt: "" },

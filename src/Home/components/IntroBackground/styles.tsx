@@ -101,7 +101,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 			scrl > 800
 				? css`
 						position: absolute;
-						top: 1100px;
+						margin-top: 1100px;
 				  `
 				: css`
 						position: fixed;
