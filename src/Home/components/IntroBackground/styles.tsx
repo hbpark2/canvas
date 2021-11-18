@@ -8,7 +8,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	border: 1px solid #e4cbac;
+	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	z-index: 5;
 	width: 500px;
 	height: 500px;
@@ -16,6 +16,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	filter: blur(1.5px);
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
+	transition: border-color 0.5s;
 	${({ scrl }) =>
 		scrl > 300
 			? css`
@@ -43,14 +44,15 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		width: 500px;
 		height: 500px;
 		content: "";
-		border: 1px solid #e4cbac;
+		border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 		border-radius: 100% 70% 80% 60% / 100% 70% 80% 60%;
 		animation-name: ${CircleAni};
 		animation-duration: 3s;
 		animation-iteration-count: infinite;
 		animation-fill-mode: inherit;
 		animation-timing-function: linear;
-		transition: opacity 1s;
+		transition: opacity 1s, border-color 0.5s;
+
 		${({ scrl }) =>
 			scrl > 50
 				? css`
@@ -69,7 +71,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		width: 500px;
 		height: 500px;
 		content: "";
-		border: 1px solid #e4cbac;
+		border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 		border-radius: 100% 70% 80% 60% / 100% 70% 80% 60%;
 		animation-name: ${CircleAni};
 		animation-duration: 3s;
@@ -77,7 +79,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		animation-fill-mode: inherit;
 		animation-timing-function: linear;
 		animation-direction: reverse;
-		transition: opacity 1s;
+		transition: opacity 1s, border-color 0.5s;
 		${({ scrl }) =>
 			scrl > 100
 				? css`
@@ -123,10 +125,10 @@ export const IntroTop = styled.div<{ scrl: number }>`
 	width: 650px;
 	line-height: 1.2em;
 	align-items: center;
-	color: #e4cbac;
+	color: ${({ theme: { accentColor } }) => accentColor};
 	font-size: 22px;
 	transform: translateY(-80px);
-	transition: opacity 1s, transform 1s;
+	transition: opacity 1s, transform 1s, color 0.5s;
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	overflow: hidden;
 
@@ -174,7 +176,7 @@ export const Line = styled.i`
 	flex: 1.4;
 	display: block;
 	height: 1px;
-	background-color: #e4cbac;
+	background-color: ${({ theme: { accentColor } }) => accentColor};
 	margin: 0 10px;
 `;
 
@@ -195,9 +197,9 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 	line-height: 1em;
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	font-style: italic;
-	color: #e4cbac;
+	color: ${({ theme: { accentColor } }) => accentColor};
 	transform: translateY(-30px);
-	transition: opacity 1s, transform 1s;
+	transition: opacity 1s, transform 1s, color 0.5s;
 
 	${({ scrl }) =>
 		scrl > 300

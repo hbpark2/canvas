@@ -14,14 +14,23 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 					filter: blur(0px);
 			  `
 			: css`
+			
 					filter: blur(1.5px);
 			  `};
 `;
 
 export const TabList = styled.li`
+	display: flex;
+	align-items: center;
 	margin: 15px 0;
-	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
-	border-radius: 50%;
+	word-break: keep-all;
+`;
+
+export const TabSpan = styled.span`
+	display: block;
+	margin-left: 10px;
+	font-family: ${({ theme: { accentFont } }) => accentFont};
+	color: ${({ theme: { accentColor } }) => accentColor};
 `;
 
 export const TabButton = styled.button`
@@ -32,11 +41,12 @@ export const TabButton = styled.button`
 	height: 46px;
 	padding: 10px;
 	padding-bottom: 17px;
+	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	font-size: 28px;
 	color: ${({ theme: { accentColor } }) => accentColor};
 	cursor: none;
-	transition: background 0.5s;
+	transition: background-color 0.5s;
 	border-radius: 50%;
 	&:hover {
 		background-color: ${({ theme: { accentColor } }) => accentColor};

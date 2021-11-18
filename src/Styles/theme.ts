@@ -24,10 +24,10 @@ export const commonTheme: DefaultTheme = {
 };
 
 export const brownTheme: DefaultTheme = {
-	bgColor1: "#706260",
+	bgColor1: "#8ACAEB",
 	bgColor2: "#4d5e65",
-	bgColor3: "#9a7951",
-	accentColor: "#333",
+	bgColor3: "#706260",
+	accentColor: "#7B979E",
 	accentFont: '"Cormorant Garamond", serif',
 	deviceScreen: device,
 };
@@ -78,12 +78,12 @@ export const GlobalStyles = createGlobalStyle`
 		overflow:unset;
 	}
 
-.blind {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	clip: rect(0 0 0 0);
-	overflow: hidden;
-}
+	.blind {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		clip: rect(0 0 0 0);
+		overflow: hidden;
+	}
 
 `;

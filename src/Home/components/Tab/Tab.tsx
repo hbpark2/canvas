@@ -1,23 +1,23 @@
 import { useContext } from "react";
-import { CurrentContext, ThemeStateType } from "../../../Context/ContextStore";
+import { CurrentContext, TabStateType } from "../../../Context/ContextStore";
 import { useScroll } from "../../../Hooks/Scroll";
-import { TabButton, TabContainer, TabList } from "./styles";
+import { TabButton, TabContainer, TabList, TabSpan } from "./styles";
 import Bubble1 from "../../../Assets/bubble1.jpg";
 import Bubble2 from "../../../Assets/bubble2.jpg";
 import Bubble3 from "../../../Assets/bubble3.jpg";
 const Tab = () => {
-	const { changeCursorState, setThemeState } = useContext(CurrentContext);
+	const { changeCursorState, setTabState } = useContext(CurrentContext);
 	const { scrollY } = useScroll();
 
-	const onTabClick = (theme: ThemeStateType) => {
-		setThemeState({ theme: theme.theme, bgImage: theme.bgImage });
+	const onTabClick = (theme: TabStateType) => {
+		setTabState({ theme: theme.theme, bgImage: theme.bgImage });
 	};
 
-	const TabArr: { number: string; text: string; themeState: ThemeStateType }[] = [
-		{ number: "01", text: "", themeState: { bgImage: Bubble1, theme: "common" } },
-		{ number: "02", text: "", themeState: { bgImage: Bubble2, theme: "brown" } },
-		{ number: "03", text: "", themeState: { bgImage: Bubble3, theme: "common" } },
-		{ number: "04", text: "", themeState: { bgImage: Bubble1, theme: "brown" } },
+	const TabArr: TabStateType[] = [
+		{ bgImage: Bubble1, theme: "01", text: "가나다라마바사" },
+		{ bgImage: Bubble2, theme: "02", text: "가나다라마바사" },
+		{ bgImage: Bubble3, theme: "01", text: "가나다라마바사" },
+		{ bgImage: Bubble1, theme: "02", text: "가나다라마바사" },
 	];
 
 	return (
@@ -29,7 +29,8 @@ const Tab = () => {
 						onMouseOver={() => changeCursorState("bigger")}
 						onMouseOut={() => changeCursorState("")}
 					>
-						<TabButton onClick={() => onTabClick(item.themeState)}>{item.number}</TabButton>
+						<TabButton onClick={() => onTabClick(item)}>0{index + 1}</TabButton>
+						{/* <TabSpan>{item.text}</TabSpan> */}
 					</TabList>
 				);
 			})}

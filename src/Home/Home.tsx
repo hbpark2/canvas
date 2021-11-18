@@ -10,7 +10,7 @@ import Tab from "./components/Tab/Tab";
 import { CurrentContext } from "../Context/ContextStore";
 
 const Home = () => {
-	const { currentPosition, changeCursorState, setThemeState } = useContext(CurrentContext);
+	const { currentPosition, changeCursorState } = useContext(CurrentContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
 

@@ -6,11 +6,11 @@ import { brownTheme, commonTheme, GlobalStyles } from "../../Styles/theme";
 import Routes from "./Routes";
 
 function App() {
-	const { themeState, setThemeState } = useContext(CurrentContext);
+	const { tabState } = useContext(CurrentContext);
 
 	return (
 		<BrowserRouter>
-			<ThemeProvider theme={themeState.theme === "common" ? commonTheme : brownTheme}>
+			<ThemeProvider theme={tabState.theme === "01" ? commonTheme : brownTheme}>
 				<GlobalStyles />
 				<Routes />
 			</ThemeProvider>

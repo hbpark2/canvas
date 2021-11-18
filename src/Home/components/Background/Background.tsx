@@ -8,7 +8,7 @@ import { CurrentContext } from "../../../Context/ContextStore";
 SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 const Background: React.FC = () => {
-	const { invert, themeState } = useContext(CurrentContext);
+	const { invert, tabState } = useContext(CurrentContext);
 	const [loading, setLoading] = useState(true);
 
 	const imgArr = [
@@ -23,7 +23,7 @@ const Background: React.FC = () => {
 			setLoading(false);
 		}, 50);
 		setLoading(true);
-	}, [themeState]);
+	}, [tabState]);
 
 	return (
 		<>
@@ -35,14 +35,14 @@ const Background: React.FC = () => {
 								<ImageWrap>
 									{imgArr.map((item, index) => {
 										return (
-											<ImageBox key={`img${index}`} invert={invert} bgImage={themeState.bgImage} />
+											<ImageBox key={`img${index}`} invert={invert} bgImage={tabState.bgImage} />
 										);
 									})}
 								</ImageWrap>
 								<ImageWrap>
 									{imgArr.map((item, index) => {
 										return (
-											<ImageBox key={`img${index}`} invert={invert} bgImage={themeState.bgImage} />
+											<ImageBox key={`img${index}`} invert={invert} bgImage={tabState.bgImage} />
 										);
 									})}
 								</ImageWrap>
