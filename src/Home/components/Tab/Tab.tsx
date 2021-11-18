@@ -19,6 +19,8 @@ const Tab = () => {
 		{ number: "04", img: Bubble1, text: "" },
 	];
 
+	// console.log(scrollY);
+
 	return (
 		<TabContainer scrl={scrollY}>
 			{TabArr.map((item, index) => {
