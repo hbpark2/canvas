@@ -15,7 +15,6 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	margin: 0 auto;
 	padding-bottom: 50px;
 	z-index: 1;
-	opacity: 0;
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
 
@@ -23,7 +22,7 @@ export const ImgSection = styled.article<{ scrl: number }>`
 		scrl > 800
 			? css`
 					opacity: 1;
-					top: 800px;
+					/* top: 800px; */
 			  `
 			: css`
 					opacity: 0;

@@ -39,7 +39,6 @@ const Home = () => {
 				{!loading && (
 					<>
 						<IntroBackground scrollY={scrollY} />
-						<Tab />
 						<ImgSection scrl={scrollY}>
 							<ImageWrap>
 								<Image

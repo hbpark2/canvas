@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const TabContainer = styled.ul<{ scrl: number }>`
+	position: absolute;
+	top: 50%;
 	left: calc(50% + 400px);
 	transform: translate(-50%, -50%);
 	transition: filter 0.5s;
@@ -13,17 +15,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 			  `
 			: css`
 					filter: blur(1.5px);
-			  `}
-	${({ scrl }) =>
-		scrl > 800
-			? css`
-					position: absolute;
-					top: 1300px;
-			  `
-			: css`
-					position: fixed;
-					top: 50%;
-			  `}
+			  `};
 `;
 
 export const TabList = styled.li`
@@ -31,6 +23,7 @@ export const TabList = styled.li`
 	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	border-radius: 50%;
 `;
+
 export const TabButton = styled.button`
 	display: flex;
 	justify-content: center;
