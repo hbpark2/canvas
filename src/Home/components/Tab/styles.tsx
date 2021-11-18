@@ -14,9 +14,12 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 					filter: blur(0px);
 			  `
 			: css`
-			
 					filter: blur(1.5px);
 			  `};
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		display: none;
+	}
 `;
 
 export const TabList = styled.li`

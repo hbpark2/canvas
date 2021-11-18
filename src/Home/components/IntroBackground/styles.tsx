@@ -17,26 +17,28 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
 	transition: border-color 0.5s;
-	${({ scrl }) =>
-		scrl > 300
-			? css`
-					filter: blur(0.5px);
-			  `
-			: css`
-					filter: blur(1.5px);
-			  `}
+	@media screen and (min-width: 640px) {
+		${({ scrl }) =>
+			scrl > 300
+				? css`
+						filter: blur(0.5px);
+				  `
+				: css`
+						filter: blur(1.5px);
+				  `}
 
-	${({ scrl }) =>
-		scrl > 800
-			? css`
-					position: relative;
-					margin-top: 1300px;
-			  `
-			: css`
-					position: fixed;
-			  `}
+		${({ scrl }) =>
+			scrl > 800
+				? css`
+						position: relative;
+						margin-top: 1300px;
+				  `
+				: css`
+						position: fixed;
+				  `}
+	}
 
-&::after {
+	&::after {
 		position: absolute;
 		top: -2px;
 		left: -2px;
@@ -91,8 +93,11 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	}
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		position: relative;
 		width: 300px;
 		height: 300px;
+		/* transform: translate(-50%, 150px); */
+		filter: none;
 		&::after,
 		&::before {
 			width: 300px;
@@ -100,10 +105,10 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		}
 
 		${({ scrl }) =>
-			scrl > 800
+			scrl > 500
 				? css`
-						position: absolute;
-						margin-top: 1100px;
+						position: relative;
+						margin-top: 800px;
 				  `
 				: css`
 						position: fixed;
@@ -158,6 +163,7 @@ export const IntroTop = styled.div<{ scrl: number }>`
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		width: 90%;
 		transform: translateY(-50px);
+		filter: none;
 
 		${({ scrl }) =>
 			scrl > 50
@@ -217,5 +223,6 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		font-size: 80px;
 		vertical-align: top;
+		filter: none;
 	}
 `;

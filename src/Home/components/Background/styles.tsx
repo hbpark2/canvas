@@ -33,6 +33,10 @@ export const Container = styled.div`
 	height: 100vh;
 	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		overflow-x: hidden;
+	}
 `;
 
 export const Inner = styled.div`
@@ -40,6 +44,12 @@ export const Inner = styled.div`
 	height: 100vh;
 	animation-name: ${RightToLeft};
 	animation-duration: 2s;
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		width: 90vw;
+		overflow: hidden;
+		animation: none;
+	}
 `;
 
 export const LoopContainer = styled.div`
@@ -103,5 +113,6 @@ export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		width: 75vw;
+		height: 550px;
 	}
 `;
