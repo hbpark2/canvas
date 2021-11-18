@@ -68,6 +68,33 @@ export const SlideUp = keyframes`
             transform: translate3d(0, -15px, 0);
   }
 `;
+
+export const SlideUpMoTop = keyframes` 
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -50px, 0);
+            transform: translate3d(0, -50px, 0);
+  }
+`;
+
+export const SlideUpMo = keyframes` 
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0px, 0);
+            transform: translate3d(0, 0px, 0);
+  }
+`;
+
 export const CircleAni = keyframes`
  0% {
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;

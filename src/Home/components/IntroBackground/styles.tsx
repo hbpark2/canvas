@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { CircleAni, FadeIn } from "../../../Styles/animation";
+import { CircleAni, FadeIn, SlideUp, SlideUpMo, SlideUpMoTop } from "../../../Styles/animation";
 
 export const CircleBox = styled.article<{ scrl: number }>`
 	display: flex;
@@ -55,14 +55,16 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		animation-timing-function: linear;
 		transition: opacity 1s, border-color 0.5s;
 
-		${({ scrl }) =>
-			scrl > 50
-				? css`
-						opacity: 0.8;
-				  `
-				: css`
-						opacity: 0.1;
-				  `}
+		@media screen and (min-width: 640px) {
+			${({ scrl }) =>
+				scrl > 50
+					? css`
+							opacity: 0.8;
+					  `
+					: css`
+							opacity: 0.1;
+					  `}
+		}
 	}
 
 	&::before {
@@ -82,37 +84,31 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		animation-timing-function: linear;
 		animation-direction: reverse;
 		transition: opacity 1s, border-color 0.5s;
-		${({ scrl }) =>
-			scrl > 100
-				? css`
-						opacity: 0.8;
-				  `
-				: css`
-						opacity: 0.2;
-				  `}
+		@media screen and (min-width: 640px) {
+			${({ scrl }) =>
+				scrl > 100
+					? css`
+							opacity: 0.8;
+					  `
+					: css`
+							opacity: 0.2;
+					  `}
+		}
 	}
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		position: relative;
+		left: 0;
+		transform: none;
 		width: 300px;
 		height: 300px;
-		/* transform: translate(-50%, 150px); */
+		margin: 200px auto;
 		filter: none;
 		&::after,
 		&::before {
 			width: 300px;
 			height: 300px;
 		}
-
-		${({ scrl }) =>
-			scrl > 500
-				? css`
-						position: relative;
-						margin-top: 800px;
-				  `
-				: css`
-						position: fixed;
-				  `}
 	}
 `;
 
@@ -146,35 +142,29 @@ export const IntroTop = styled.div<{ scrl: number }>`
 	span:last-of-type {
 		flex: 0.6;
 	}
-
-	${({ scrl }) =>
-		scrl > 50
-			? css`
-					opacity: 1;
-					filter: blur(0.5px);
-					transform: translateY(-100px);
-			  `
-			: css`
-					opacity: 0;
-					filter: blur(1px);
-					transform: translateY(100px);
-			  `}
-
-	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		width: 90%;
-		transform: translateY(-50px);
-		filter: none;
-
+	@media screen and (min-width: 640px) {
 		${({ scrl }) =>
 			scrl > 50
 				? css`
 						opacity: 1;
-						transform: translateY(-50px);
+						filter: blur(0.5px);
+						transform: translateY(-100px);
 				  `
 				: css`
 						opacity: 0;
+						filter: blur(1px);
 						transform: translateY(100px);
 				  `}
+	}
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		width: 100%;
+		transform: translateY(-50px);
+		filter: none;
+		animation: ${SlideUpMoTop} 2s;
+		span:last-of-type {
+			flex: 1.6;
+		}
 	}
 `;
 
@@ -189,11 +179,10 @@ export const Line = styled.i`
 export const IntroCenter = styled.p<{ scrl: number }>`
 	overflow: hidden;
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		${({ scrl }) =>
-			scrl > 800 &&
-			css`
-				transform: translateY(-30px);
-			`};
+		opacity: 0;
+		animation: ${SlideUpMo} 2s;
+		animation-delay: 1s;
+		animation-fill-mode: both;
 	}
 `;
 
@@ -206,19 +195,20 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 	color: ${({ theme: { accentColor } }) => accentColor};
 	transform: translateY(-30px);
 	transition: opacity 1s, transform 1s, color 0.5s;
-
-	${({ scrl }) =>
-		scrl > 300
-			? css`
-					opacity: 1;
-					transform: translateY(-30px);
-					filter: blur(1px);
-			  `
-			: css`
-					opacity: 0;
-					transform: translateY(100px);
-					filter: blur(1.5px);
-			  `};
+	@media screen and (min-width: 640px) {
+		${({ scrl }) =>
+			scrl > 300
+				? css`
+						opacity: 1;
+						transform: translateY(-30px);
+						filter: blur(1px);
+				  `
+				: css`
+						opacity: 0;
+						transform: translateY(100px);
+						filter: blur(1.5px);
+				  `};
+	}
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
 		font-size: 80px;

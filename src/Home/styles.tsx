@@ -6,6 +6,9 @@ export const Container = styled.main`
 	width: 100%;
 	min-height: 250vh;
 	z-index: 100;
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		min-height: 100vh;
+	}
 `;
 
 export const ImgSection = styled.article<{ scrl: number }>`
@@ -18,16 +21,22 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
 
-	${({ scrl }) =>
-		scrl > 800
-			? css`
-					opacity: 1;
-					/* top: 800px; */
-			  `
-			: css`
-					opacity: 0;
-					top: 1300px;
-			  `}
+	@media screen and (min-width: 640px) {
+		${({ scrl }) =>
+			scrl > 800
+				? css`
+						opacity: 1;
+						/* top: 800px; */
+				  `
+				: css`
+						opacity: 0;
+						top: 1300px;
+				  `}
+	}
+
+	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
+		/* top: 100vh; */
+	}
 `;
 
 export const ImageWrap = styled.div``;

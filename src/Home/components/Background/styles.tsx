@@ -46,7 +46,7 @@ export const Inner = styled.div`
 	animation-duration: 2s;
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {
-		width: 90vw;
+		width: 80vw;
 		overflow: hidden;
 		animation: none;
 	}
