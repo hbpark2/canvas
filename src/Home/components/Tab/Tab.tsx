@@ -1,24 +1,23 @@
 import { useContext } from "react";
-import { CurrentContext } from "../../../Context/ContextStore";
+import { CurrentContext, ThemeStateType } from "../../../Context/ContextStore";
 import { useScroll } from "../../../Hooks/Scroll";
 import { TabButton, TabContainer, TabList } from "./styles";
 import Bubble1 from "../../../Assets/bubble1.jpg";
 import Bubble2 from "../../../Assets/bubble2.jpg";
 import Bubble3 from "../../../Assets/bubble3.jpg";
 const Tab = () => {
-	const { changeCursorState, setBgImage, setThemeState } = useContext(CurrentContext);
+	const { changeCursorState, setThemeState } = useContext(CurrentContext);
 	const { scrollY } = useScroll();
 
-	const onTabClick = (img: string) => {
-		setBgImage(img);
-		// setThemeState("brown");
+	const onTabClick = (theme: ThemeStateType) => {
+		setThemeState({ theme: theme.theme, bgImage: theme.bgImage });
 	};
 
-	const TabArr = [
-		{ number: "01", img: Bubble1, text: "" },
-		{ number: "02", img: Bubble2, text: "" },
-		{ number: "03", img: Bubble3, text: "" },
-		{ number: "04", img: Bubble1, text: "" },
+	const TabArr: { number: string; text: string; themeState: ThemeStateType }[] = [
+		{ number: "01", text: "", themeState: { bgImage: Bubble1, theme: "common" } },
+		{ number: "02", text: "", themeState: { bgImage: Bubble2, theme: "brown" } },
+		{ number: "03", text: "", themeState: { bgImage: Bubble3, theme: "common" } },
+		{ number: "04", text: "", themeState: { bgImage: Bubble1, theme: "brown" } },
 	];
 
 	return (
@@ -30,7 +29,7 @@ const Tab = () => {
 						onMouseOver={() => changeCursorState("bigger")}
 						onMouseOut={() => changeCursorState("")}
 					>
-						<TabButton onClick={() => onTabClick(item.img)}>{item.number}</TabButton>
+						<TabButton onClick={() => onTabClick(item.themeState)}>{item.number}</TabButton>
 					</TabList>
 				);
 			})}

@@ -24,7 +24,7 @@ const Container = styled.div`
 	-webkit-animation: ${NoiseAni} 0.8s steps(10) infinite;
 	animation: ${NoiseAni} 0.8s steps(10) infinite;
 	pointer-events: none;
-	z-index: 3;
+	z-index: 105;
 `;
 
 const Noise = () => {

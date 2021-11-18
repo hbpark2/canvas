@@ -19,7 +19,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	${({ scrl }) =>
 		scrl > 300
 			? css`
-					filter: blur(1px);
+					filter: blur(0.5px);
 			  `
 			: css`
 					filter: blur(1.5px);
@@ -204,12 +204,12 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 			? css`
 					opacity: 1;
 					transform: translateY(-30px);
-					filter: blur(0.5px);
+					filter: blur(1px);
 			  `
 			: css`
 					opacity: 0;
 					transform: translateY(100px);
-					filter: blur(1px);
+					filter: blur(1.5px);
 			  `};
 
 	@media ${({ theme: { deviceScreen } }) => deviceScreen.mobile} {

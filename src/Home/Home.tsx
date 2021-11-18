@@ -27,13 +27,13 @@ const Home = () => {
 			document.body?.classList.remove("overflow-hidden");
 			document.body?.classList.add("overflow-unset");
 		}
-		setThemeState("common");
 	}, [loading]);
 
 	return (
 		<>
 			<ScrollCircle />
 			<Cursor currentPosition={currentPosition} />
+			<Background />
 			<Container id="content">
 				{!loading && (
 					<>
@@ -62,7 +62,6 @@ const Home = () => {
 						</ImgSection>
 					</>
 				)}
-				<Background />
 			</Container>
 		</>
 	);

@@ -8,16 +8,16 @@ type StoreProviderProp = {
 
 type CursorState = "biggerInvert" | "bigger" | "";
 
+export type ThemeStateType = { theme: "common" | "brown"; bgImage: string };
+
 type ValueType = {
 	menuOpen: boolean;
 	setMenuOpen: (T: boolean) => void;
 	invert: boolean;
 	setInvert: (T: boolean) => void;
 	currentPosition: CursorState;
-	bgImage: string;
-	setBgImage: (T: string) => void;
-	themeState: string;
-	setThemeState: (T: string) => void;
+	themeState: ThemeStateType;
+	setThemeState: (T: ThemeStateType) => void;
 	setCurrentPosition: (T: CursorState) => void;
 	changeCursorState: (T: CursorState) => void;
 };
@@ -28,20 +28,20 @@ export const CurrentContext = createContext<ValueType>({
 	invert: false,
 	setInvert: () => {},
 	currentPosition: "",
-	bgImage: "",
-	setBgImage: () => {},
-	themeState: "",
+	themeState: { theme: "common", bgImage: Bubble1 },
 	setThemeState: () => {},
 	setCurrentPosition: () => {},
 	changeCursorState: () => {},
 });
 
 export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
-	const [themeState, setThemeState] = useState<string>("common");
+	const [themeState, setThemeState] = useState<ThemeStateType>({
+		theme: "common",
+		bgImage: Bubble1,
+	});
 	const [menuOpen, setMenuOpen] = useState<boolean>(false);
 	const [currentPosition, setCurrentPosition] = useState<CursorState>("");
 	const [invert, setInvert] = useState<boolean>(false);
-	const [bgImage, setBgImage] = useState<string>(Bubble1);
 
 	const changeCursorState = (state: string) => {
 		if (state === "biggerInvert") {
@@ -61,8 +61,6 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 		invert,
 		setInvert,
 		currentPosition,
-		bgImage,
-		setBgImage,
 		themeState,
 		setThemeState,
 		setCurrentPosition,

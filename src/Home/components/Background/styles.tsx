@@ -23,18 +23,20 @@ import Bubble1 from "../../../Assets/bubble1.jpg";
 import Bubble2 from "../../../Assets/bubble2.jpg";
 import Bubble3 from "../../../Assets/bubble3.jpg";
 import Moon1 from "../../../Assets/moon.jpg";
-import Noise from "../../../Components/Common/Noise";
+
 import { Loop, Loop2, RightToLeft } from "../../../Styles/animation";
 
 export const Container = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0;
+	width: 100%;
 	height: 100vh;
+	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
 `;
 
 export const Inner = styled.div`
-	width: 100vw;
+	width: 98vw;
 	height: 100vh;
 	animation-name: ${RightToLeft};
 	animation-duration: 2s;
@@ -46,6 +48,7 @@ export const LoopContainer = styled.div`
 	left: 0;
 	width: 100vw;
 	height: 100vh;
+	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
 `;
 

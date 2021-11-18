@@ -42,6 +42,8 @@ export const GlobalStyles = createGlobalStyle`
   body{
     font-family: 'Noto Sans KR', sans-serif;  
 		background-color:${(props) => props.theme.bgColor1};
+		transition: background-color 0.5s;
+
 	}
 
   main{

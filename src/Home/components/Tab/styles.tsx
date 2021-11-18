@@ -11,7 +11,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	${({ scrl }) =>
 		scrl > 150
 			? css`
-					filter: blur(0.1px);
+					filter: blur(0px);
 			  `
 			: css`
 					filter: blur(1.5px);
@@ -28,8 +28,8 @@ export const TabButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 45px;
-	height: 45px;
+	width: 46px;
+	height: 46px;
 	padding: 10px;
 	padding-bottom: 17px;
 	font-family: ${({ theme: { accentFont } }) => accentFont};

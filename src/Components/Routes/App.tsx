@@ -10,7 +10,7 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<ThemeProvider theme={themeState === "common" ? commonTheme : brownTheme}>
+			<ThemeProvider theme={themeState.theme === "common" ? commonTheme : brownTheme}>
 				<GlobalStyles />
 				<Routes />
 			</ThemeProvider>

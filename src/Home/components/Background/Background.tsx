@@ -8,7 +8,8 @@ import { CurrentContext } from "../../../Context/ContextStore";
 SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 const Background: React.FC = () => {
-	const { invert, bgImage } = useContext(CurrentContext);
+	const { invert, themeState } = useContext(CurrentContext);
+	const [loading, setLoading] = useState(true);
 
 	const imgArr = [
 		{ src: "", alt: "" },
@@ -17,26 +18,41 @@ const Background: React.FC = () => {
 		{ src: "", alt: "" },
 	];
 
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false);
+		}, 50);
+		setLoading(true);
+	}, [themeState]);
+
 	return (
-		<Container>
-			<Inner>
-				<LoopContainer>
-					<LoopWrap>
-						<ImageWrap>
-							{imgArr.map((item, index) => {
-								return <ImageBox key={`img${index}`} invert={invert} bgImage={bgImage} />;
-							})}
-						</ImageWrap>
-						<ImageWrap>
-							{imgArr.map((item, index) => {
-								return <ImageBox key={`img${index}`} invert={invert} bgImage={bgImage} />;
-							})}
-						</ImageWrap>
-					</LoopWrap>
-				</LoopContainer>
-			</Inner>
+		<>
+			<Container>
+				{!loading && (
+					<Inner>
+						<LoopContainer>
+							<LoopWrap>
+								<ImageWrap>
+									{imgArr.map((item, index) => {
+										return (
+											<ImageBox key={`img${index}`} invert={invert} bgImage={themeState.bgImage} />
+										);
+									})}
+								</ImageWrap>
+								<ImageWrap>
+									{imgArr.map((item, index) => {
+										return (
+											<ImageBox key={`img${index}`} invert={invert} bgImage={themeState.bgImage} />
+										);
+									})}
+								</ImageWrap>
+							</LoopWrap>
+						</LoopContainer>
+					</Inner>
+				)}
+			</Container>
 			<Noise />
-		</Container>
+		</>
 	);
 };
 
