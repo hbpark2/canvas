@@ -79,7 +79,6 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 
 	const tail = () => {
 		const cursorTail = document.querySelector(".cursor-tail")! as HTMLElement;
-
 		const tail_x = parseInt(cursorTail.style?.left.replace("px", "")) || 0;
 		const tail_y = parseInt(cursorTail.style?.top.replace("px", "")) || 0;
 		cursorTail.style.top = `${Math.round(tail_y + (mouseY - tail_y) / 8)}px`;

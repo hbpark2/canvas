@@ -16,6 +16,8 @@ type ValueType = {
 	currentPosition: CursorState;
 	bgImage: string;
 	setBgImage: (T: string) => void;
+	themeState: string;
+	setThemeState: (T: string) => void;
 	setCurrentPosition: (T: CursorState) => void;
 	changeCursorState: (T: CursorState) => void;
 };
@@ -28,11 +30,14 @@ export const CurrentContext = createContext<ValueType>({
 	currentPosition: "",
 	bgImage: "",
 	setBgImage: () => {},
+	themeState: "",
+	setThemeState: () => {},
 	setCurrentPosition: () => {},
 	changeCursorState: () => {},
 });
 
 export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
+	const [themeState, setThemeState] = useState<string>("common");
 	const [menuOpen, setMenuOpen] = useState<boolean>(false);
 	const [currentPosition, setCurrentPosition] = useState<CursorState>("");
 	const [invert, setInvert] = useState<boolean>(false);
@@ -58,6 +63,8 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 		currentPosition,
 		bgImage,
 		setBgImage,
+		themeState,
+		setThemeState,
 		setCurrentPosition,
 		changeCursorState,
 	};

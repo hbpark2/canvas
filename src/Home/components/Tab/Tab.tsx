@@ -6,10 +6,12 @@ import Bubble1 from "../../../Assets/bubble1.jpg";
 import Bubble2 from "../../../Assets/bubble2.jpg";
 import Bubble3 from "../../../Assets/bubble3.jpg";
 const Tab = () => {
-	const { changeCursorState, setBgImage } = useContext(CurrentContext);
+	const { changeCursorState, setBgImage, setThemeState } = useContext(CurrentContext);
 	const { scrollY } = useScroll();
+
 	const onTabClick = (img: string) => {
 		setBgImage(img);
+		// setThemeState("brown");
 	};
 
 	const TabArr = [

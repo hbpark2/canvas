@@ -10,7 +10,8 @@ import Tab from "./components/Tab/Tab";
 import { CurrentContext } from "../Context/ContextStore";
 
 const Home = () => {
-	const { currentPosition, invert, changeCursorState, bgImage } = useContext(CurrentContext);
+	const { currentPosition, invert, changeCursorState, bgImage, themeState, setThemeState } =
+		useContext(CurrentContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
 
@@ -27,6 +28,7 @@ const Home = () => {
 			document.body?.classList.remove("overflow-hidden");
 			document.body?.classList.add("overflow-unset");
 		}
+		setThemeState("common");
 	}, [loading]);
 
 	return (
@@ -38,6 +40,17 @@ const Home = () => {
 					<>
 						<IntroBackground scrollY={scrollY} />
 						<Tab />
+						<ImgSection scrl={scrollY}>
+							<ImageWrap>
+								<Image
+									src={Bubble2}
+									alt=""
+									onMouseOver={() => changeCursorState("biggerInvert")}
+									onMouseOut={() => changeCursorState("")}
+								/>
+							</ImageWrap>
+							<TextWrap></TextWrap>
+						</ImgSection>
 						<ImgSection scrl={scrollY}>
 							<ImageWrap>
 								<Image

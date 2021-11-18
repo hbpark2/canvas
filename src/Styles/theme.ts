@@ -23,6 +23,15 @@ export const commonTheme: DefaultTheme = {
 	deviceScreen: device,
 };
 
+export const brownTheme: DefaultTheme = {
+	bgColor1: "#706260",
+	bgColor2: "#4d5e65",
+	bgColor3: "#9a7951",
+	accentColor: "#333",
+	accentFont: '"Cormorant Garamond", serif',
+	deviceScreen: device,
+};
+
 //global
 export const GlobalStyles = createGlobalStyle`
   ${reset}
