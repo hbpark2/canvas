@@ -22,28 +22,29 @@ const deviceMin = {
 	wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
 };
 
-export const commonTheme: DefaultTheme = {
+export const navyTheme: DefaultTheme = {
 	bgColor1: "#4d5e65",
 	bgColor2: "#706260",
 	bgColor3: "#9a7951",
 	accentColor: "#e4cbac",
-	accentFont: '"Cormorant Garamond", serif',
+	accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
+	textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
 	fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
 	deviceScreenMax: deviceMax,
 	deviceScreenMin: deviceMin,
 };
 
-export const brownTheme: DefaultTheme = {
+export const skyblueTheme: DefaultTheme = {
 	bgColor1: "#8ACAEB",
 	bgColor2: "#4d5e65",
 	bgColor3: "#706260",
-	accentColor: "#7B979E",
+	accentColor: "#76A88B",
 	accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
+	textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
 	fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
 	deviceScreenMax: deviceMax,
 	deviceScreenMin: deviceMin,
 };
-// 755651
 
 //global
 export const GlobalStyles = createGlobalStyle`

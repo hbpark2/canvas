@@ -1,8 +1,9 @@
 import { useContext, useEffect } from "react";
 import { CurrentContext } from "../../../Context/ContextStore";
+import { TabLine } from "../../../Home/components/Tab/styles";
 import { TabArr } from "../../../Home/components/Tab/tabdata";
 import Noise from "../../Common/Noise";
-import { Container, Logo, MenuBtn, Nav, LinkButton, NavList, LinkSpan, NavUl } from "./styles";
+import { Container, Logo, MenuBtn, Nav, LinkButton, NavList, LinkSpan, NavUl, LinkLine } from "./styles";
 
 const Header = () => {
 	const { menuOpen, setMenuOpen, changeCursorState, onTabClick, tabState } =
@@ -36,7 +37,10 @@ const Header = () => {
 							>
 								<LinkButton current={tabState.id === index + 1}>0{index + 1}</LinkButton>
 								<h3>
-									<LinkSpan>{item.text}</LinkSpan>
+									<LinkSpan>
+										{item.text}
+										<LinkLine current={tabState.id === index + 1} />
+									</LinkSpan>
 								</h3>
 							</NavList>
 						);

@@ -219,7 +219,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 	color: ${({ theme: { accentColor } }) => accentColor};
 	transform: translateY(-30px);
 	transition: opacity 1s, transform 1s, color 0.5s;
-
+	text-shadow: ${({ theme: { textShadow } }) => textShadow};
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		font-size: 80px;
 		vertical-align: top;

@@ -168,3 +168,11 @@ export const LinkSpan = styled.span`
 		margin-left: 30px;
 	}
 `;
+export const LinkLine = styled.i<{ current: boolean }>`
+	display: block;
+	width: ${({ current }) => (current ? "100%" : "0")};
+	height: 2px;
+	margin-top: 5px;
+	background-color: ${({ theme: { accentColor } }) => accentColor};
+	transition: width 1s;
+`;

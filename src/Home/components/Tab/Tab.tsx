@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { TabArr } from "./tabdata";
 import { CurrentContext } from "../../../Context/ContextStore";
 import { useScroll } from "../../../Hooks/Scroll";
-import { TabButton, TabContainer, TabList, TabSpan } from "./styles";
+import { TabButton, TabContainer, TabLine, TabList, TabSpan } from "./styles";
 
 const Tab = () => {
 	const { changeCursorState, onTabClick, tabState } = useContext(CurrentContext);
@@ -17,14 +17,13 @@ const Tab = () => {
 						key={`tab${index}`}
 						onMouseOver={() => changeCursorState("bigger")}
 						onMouseOut={() => changeCursorState("")}
+						onClick={() => tabState.id !== index + 1 && onTabClick(item)}
 					>
-						<TabButton
-							onClick={() => tabState.id !== index + 1 && onTabClick(item)}
-							current={tabState.id === index + 1}
-						>
-							0{index + 1}
-						</TabButton>
-						<TabSpan>{item.text}</TabSpan>
+						<TabButton current={tabState.id === index + 1}>0{index + 1}</TabButton>
+						<TabSpan>
+							{item.text}
+							<TabLine current={tabState.id === index + 1} />
+						</TabSpan>
 					</TabList>
 				);
 			})}

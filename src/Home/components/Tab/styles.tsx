@@ -4,14 +4,14 @@ import { FadeIn } from "../../../Styles/animation";
 export const TabContainer = styled.ul<{ scrl: number }>`
 	position: absolute;
 	top: 50%;
-	left: calc(50% + 400px);
+	left: calc(50% + 430px);
 	transform: translate(-50%, -50%);
 	transition: filter 0.5s;
 	z-index: 200;
 	animation: ${FadeIn} 1s;
 
 	${({ scrl }) =>
-		scrl > 1000
+		scrl > 1100
 			? css`
 					position: fixed;
 					left: auto;
@@ -47,14 +47,23 @@ export const TabList = styled.li`
 export const TabSpan = styled.span`
 	display: block;
 	margin-left: 10px;
-	/* font-family: ${({ theme: { accentFont } }) => accentFont}; */
-	font-family: "Cormorant Garamond", "Nanum Gothic", serif;
+	font-size: 22px;
+	font-family: ${({ theme: { accentFont } }) => accentFont};
 	color: ${({ theme: { accentColor } }) => accentColor};
-	font-weight: 700;
+	font-weight: 400;
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		margin-left: 30px;
 	}
+`;
+
+export const TabLine = styled.i<{ current: boolean }>`
+	display: block;
+	width: ${({ current }) => (current ? "100%" : "0")};
+	height: 1px;
+	margin-top: 5px;
+	background-color: ${({ theme: { accentColor } }) => accentColor};
+	transition: width 1s;
 `;
 
 export const TabButton = styled.button<{ current: boolean }>`
