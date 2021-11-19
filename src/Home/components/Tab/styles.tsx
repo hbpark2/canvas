@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { FadeIn } from "../../../Styles/animation";
 
 export const TabContainer = styled.ul<{ scrl: number }>`
 	position: absolute;
@@ -6,7 +7,8 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	left: calc(50% + 400px);
 	transform: translate(-50%, -50%);
 	transition: filter 0.5s;
-	z-index: 1;
+	z-index: 200;
+	animation: ${FadeIn} 1s;
 
 	${({ scrl }) =>
 		scrl > 150
@@ -14,7 +16,22 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 					filter: blur(0px);
 			  `
 			: css`
-					filter: blur(1.5px);
+					filter: blur(1px);
+			  `};
+
+	${({ scrl }) =>
+		scrl > 1000
+			? css`
+					position: fixed;
+					left: auto;
+					top: auto;
+					transform: none;
+					right: 50px;
+					bottom: 50px;
+			  `
+			: css`
+					position: absolute;
+					filter: blur(1px);
 			  `};
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {

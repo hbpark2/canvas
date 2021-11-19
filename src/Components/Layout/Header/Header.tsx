@@ -22,6 +22,7 @@ const Header = () => {
 				{!menuOpen ? "MENU" : "CLOSE"}
 			</MenuBtn>
 			<Nav menuOpen={menuOpen}>
+				<h2 className="blind">navigation</h2>
 				<NavUl>
 					{TabArr.map((item, index) => {
 						return (
@@ -34,7 +35,9 @@ const Header = () => {
 								menuOpen={menuOpen}
 							>
 								<LinkButton current={tabState.id === index + 1}>0{index + 1}</LinkButton>
-								<LinkSpan>{item.text}</LinkSpan>
+								<h3>
+									<LinkSpan>{item.text}</LinkSpan>
+								</h3>
 							</NavList>
 						);
 					})}

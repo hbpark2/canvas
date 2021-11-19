@@ -34,7 +34,8 @@ const Home = () => {
 			<ScrollCircle />
 			<Cursor currentPosition={currentPosition} />
 			<Background />
-			<Container>
+			<Container aria-hidden={!menuOpen}>
+				<h2 className="blind">contents</h2>
 				{!loading && (
 					<>
 						<IntroBackground scrollY={scrollY} />

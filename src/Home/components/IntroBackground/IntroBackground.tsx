@@ -9,6 +9,7 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 	return (
 		<>
 			<CircleBox scrl={scrollY}>
+				<h3 className="blind">intro</h3>
 				<IntroSection>
 					<IntroTop scrl={scrollY}>
 						<span>Selected Art&amp;Works</span>
@@ -19,8 +20,9 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 						<IntroCenterText scrl={scrollY}>7ransis7or</IntroCenterText>
 					</IntroCenter>
 				</IntroSection>
-				<Tab />
+				{scrollY < 1000 && <Tab />}
 			</CircleBox>
+			{scrollY > 1000 && <Tab />}
 		</>
 	);
 };

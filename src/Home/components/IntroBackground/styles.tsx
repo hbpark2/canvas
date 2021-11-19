@@ -92,6 +92,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		}
 	}
 
+	// NOMAL PC
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 		${({ scrl }) =>
 			scrl > 300
