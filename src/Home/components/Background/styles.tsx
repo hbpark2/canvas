@@ -26,13 +26,15 @@ import Moon1 from "../../../Assets/moon.jpg";
 
 import { Loop, Loop2, RightToLeft } from "../../../Styles/animation";
 
-export const Container = styled.div`
+export const Container = styled.div<{ blur: boolean }>`
 	position: fixed;
 	top: 0;
 	width: 100%;
 	height: 100vh;
 	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
+	transition: filter 0.5s;
+	${({ blur }) => (blur ? "filter:blur(10px)" : "filter:none")};
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		overflow-x: hidden;

@@ -12,8 +12,9 @@ export const Container = styled.header`
 	z-index: 200;
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		width: calc(100% - 50px);
 		padding: 30px;
-	} ;
+	}
 `;
 
 export const Logo = styled.h1`
@@ -28,19 +29,31 @@ export const Logo = styled.h1`
 `;
 
 export const MenuBtn = styled.button`
-	position: relative;
+	position: fixed;
+	top: 55px;
+	right: 55px;
 	z-index: 205;
 	color: ${({ theme: { accentColor } }) => accentColor};
+	font-family: ${({ theme: { accentFont } }) => accentFont};
+	font-size: 24px;
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		top: 35px;
+		right: 35px;
+	}
 `;
 
 export const Nav = styled.nav<{ menuOpen: boolean }>`
 	position: fixed;
 	top: 0;
 	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100vw;
 	height: 100vh;
 	background-color: ${({ theme }) => theme.bgColor2};
-	transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+	transition: opacity 0.5s, visibility 0.5s, transform 0.5s, background-color 0.5s;
+	transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 	${({ menuOpen }) =>
 		menuOpen
@@ -56,4 +69,102 @@ export const Nav = styled.nav<{ menuOpen: boolean }>`
 			  `}
 `;
 
-export const NavList = styled.li``;
+export const NavUl = styled.ul`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	transform: translateX(-10%);
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		transform: translateX(-30%);
+	}
+`;
+
+export const NavList = styled.li<{ index: number; menuOpen: boolean }>`
+	display: flex;
+	align-items: center;
+	margin: 30px 0;
+	transition: opacity 1s, visibility 1s, transform 1s;
+
+	${({ menuOpen, index }) =>
+		menuOpen
+			? css`
+					visibility: visible;
+					opacity: 1;
+					transform: translateX(${index * 60}px);
+			  `
+			: css`
+					visibility: hidden;
+					opacity: 0;
+					transform: translateX(${index}px);
+			  `}
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		transform: ${({ index }) => `translateX(${index * 40}px)`};
+		margin: 20px 0;
+	}
+`;
+
+export const LinkButton = styled.button<{ current: boolean }>`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	padding: 10px;
+	padding-bottom: 17px;
+	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
+	font-family: ${({ theme: { accentFont } }) => accentFont};
+	font-size: 36px;
+	color: ${({ theme: { accentColor } }) => accentColor};
+	cursor: none;
+	transition: background-color 0.5s;
+	border-radius: 50%;
+
+	${({ current, theme: { accentColor } }) =>
+		current
+			? css`
+					background-color: ${accentColor};
+					color: inherit;
+			  `
+			: css`
+					background-color: transparent;
+					color: ${accentColor};
+			  `};
+
+	&:hover {
+		background-color: ${({ theme: { accentColor } }) => accentColor};
+		color: inherit;
+	}
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		width: 50px;
+		height: 50px;
+		font-size: 24px;
+	}
+
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		width: 120px;
+		height: 120px;
+		font-size: 52px;
+	}
+`;
+
+export const LinkSpan = styled.span`
+	display: block;
+	margin-left: 10px;
+	font-family: ${({ theme: { accentFont } }) => accentFont};
+	font-size: 42px;
+	color: ${({ theme: { accentColor } }) => accentColor};
+	font-weight: 700;
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		font-size: 24px;
+	}
+
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+		margin-left: 30px;
+	}
+`;

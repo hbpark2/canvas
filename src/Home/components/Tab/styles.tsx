@@ -47,7 +47,7 @@ export const TabSpan = styled.span`
 	}
 `;
 
-export const TabButton = styled.button`
+export const TabButton = styled.button<{ current: boolean }>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -58,10 +58,21 @@ export const TabButton = styled.button`
 	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	font-size: 28px;
-	color: ${({ theme: { accentColor } }) => accentColor};
 	cursor: none;
 	transition: background-color 0.5s;
 	border-radius: 50%;
+
+	${({ current, theme: { accentColor } }) =>
+		current
+			? css`
+					background-color: ${accentColor};
+					color: inherit;
+			  `
+			: css`
+					background-color: transparent;
+					color: ${accentColor};
+			  `};
+
 	&:hover {
 		background-color: ${({ theme: { accentColor } }) => accentColor};
 		color: inherit;

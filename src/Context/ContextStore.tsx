@@ -8,7 +8,12 @@ type StoreProviderProp = {
 
 type CursorState = "biggerInvert" | "bigger" | "";
 
-export type TabStateType = { theme: "01" | "02" | "03" | "04"; bgImage: string; text?: string };
+export type TabStateType = {
+	id: number;
+	theme: "01" | "02" | "03" | "04";
+	bgImage: string;
+	text?: string;
+};
 
 type ValueType = {
 	menuOpen: boolean;
@@ -29,7 +34,7 @@ export const CurrentContext = createContext<ValueType>({
 	invert: false,
 	setInvert: () => {},
 	currentPosition: "",
-	tabState: { theme: "01", bgImage: Bubble1 },
+	tabState: { id: 1, theme: "01", bgImage: Bubble1 },
 	setTabState: () => {},
 	setCurrentPosition: () => {},
 	changeCursorState: () => {},
@@ -38,6 +43,7 @@ export const CurrentContext = createContext<ValueType>({
 
 export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 	const [tabState, setTabState] = useState<TabStateType>({
+		id: 1,
 		theme: "01",
 		bgImage: Bubble1,
 		text: "THEME 01",
@@ -47,19 +53,23 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 	const [invert, setInvert] = useState<boolean>(false);
 
 	const changeCursorState = (state: string) => {
-		if (state === "biggerInvert") {
-			setCurrentPosition("bigger");
-			setInvert(true);
-		} else if (state === "bigger") {
-			setCurrentPosition("bigger");
+		if (window.innerWidth > 639) {
+			if (state === "biggerInvert") {
+				setCurrentPosition("bigger");
+				setInvert(true);
+			} else if (state === "bigger") {
+				setCurrentPosition("bigger");
+			} else {
+				setCurrentPosition("");
+				setInvert(false);
+			}
 		} else {
-			setCurrentPosition("");
-			setInvert(false);
+			return null;
 		}
 	};
 
 	const onTabClick = (theme: TabStateType) => {
-		setTabState({ theme: theme.theme, bgImage: theme.bgImage });
+		setTabState({ id: theme.id, theme: theme.theme, bgImage: theme.bgImage });
 	};
 
 	const value: ValueType = {
