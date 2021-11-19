@@ -19,7 +19,7 @@ const Header = () => {
 				onMouseOver={() => changeCursorState("biggerInvert")}
 				onMouseOut={() => changeCursorState("")}
 			>
-				MENU
+				{!menuOpen ? "MENU" : "CLOSE"}
 			</MenuBtn>
 			<Nav menuOpen={menuOpen}>
 				<NavUl>

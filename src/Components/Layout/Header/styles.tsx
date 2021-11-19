@@ -52,7 +52,7 @@ export const Nav = styled.nav<{ menuOpen: boolean }>`
 	width: 100vw;
 	height: 100vh;
 	background-color: ${({ theme }) => theme.bgColor2};
-	transition: opacity 0.5s, visibility 0.5s, transform 0.5s, background-color 0.5s;
+	transition: opacity 1s, visibility 1s, transform 1s, background-color 1s;
 	transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 	${({ menuOpen }) =>
@@ -86,7 +86,7 @@ export const NavList = styled.li<{ index: number; menuOpen: boolean }>`
 	display: flex;
 	align-items: center;
 	margin: 30px 0;
-	transition: opacity 1s, visibility 1s, transform 1s;
+	transition: opacity 2s, visibility 2s, transform 2s;
 
 	${({ menuOpen, index }) =>
 		menuOpen

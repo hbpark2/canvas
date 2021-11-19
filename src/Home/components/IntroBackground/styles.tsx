@@ -83,7 +83,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		transform: none;
 		width: 300px;
 		height: 300px;
-		margin: 200px auto;
+		margin: 200px auto 250px;
 		filter: none;
 		&::after,
 		&::before {
@@ -203,8 +203,8 @@ export const IntroCenter = styled.p<{ scrl: number }>`
 		animation-delay: 1s;
 		animation-fill-mode: both;
 	}
+
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
-		font-size: 300px;
 		transform: translateY(-110px);
 	}
 `;

@@ -74,6 +74,7 @@ export const LoopWrap = styled.div`
 	left: 50%;
 	margin-left: -50vw;
 	margin-top: 20%;
+
 	ul:first-child {
 		animation: ${Loop} 50s -25s linear infinite;
 		backface-visibility: hidden;
