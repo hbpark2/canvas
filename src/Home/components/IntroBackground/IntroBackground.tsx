@@ -17,9 +17,9 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 	return (
 		<>
 			<FirstSection scrl={scrollY}>
-				LALALA
+				Hello
 				<br />
-				LALALALALALA
+				Stranger
 			</FirstSection>
 			<CircleBox scrl={scrollY}>
 				<h3 className="blind">intro</h3>

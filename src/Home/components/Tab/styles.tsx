@@ -9,6 +9,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	transition: filter 0.5s;
 	z-index: 200;
 	animation: ${FadeIn} 1s;
+	min-width: 150px;
 
 	${({ scrl }) =>
 		scrl > 1300
