@@ -11,15 +11,6 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	animation: ${FadeIn} 1s;
 
 	${({ scrl }) =>
-		scrl > 150
-			? css`
-					filter: blur(0px);
-			  `
-			: css`
-					filter: blur(1px);
-			  `};
-
-	${({ scrl }) =>
 		scrl > 1000
 			? css`
 					position: fixed;
@@ -31,7 +22,6 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 			  `
 			: css`
 					position: absolute;
-					filter: blur(1px);
 			  `};
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
@@ -47,6 +37,7 @@ export const TabList = styled.li`
 	align-items: center;
 	margin: 15px 0;
 	word-break: keep-all;
+
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		margin: 40px 0;
 		font-size: 36px;
@@ -56,9 +47,11 @@ export const TabList = styled.li`
 export const TabSpan = styled.span`
 	display: block;
 	margin-left: 10px;
-	font-family: ${({ theme: { accentFont } }) => accentFont};
+	/* font-family: ${({ theme: { accentFont } }) => accentFont}; */
+	font-family: "Cormorant Garamond", "Nanum Gothic", serif;
 	color: ${({ theme: { accentColor } }) => accentColor};
 	font-weight: 700;
+
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		margin-left: 30px;
 	}

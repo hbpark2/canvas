@@ -20,9 +20,9 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 						<IntroCenterText scrl={scrollY}>7ransis7or</IntroCenterText>
 					</IntroCenter>
 				</IntroSection>
-				{scrollY < 1000 && <Tab />}
+				{scrollY < 1100 && <Tab />}
 			</CircleBox>
-			{scrollY > 1000 && <Tab />}
+			{scrollY > 1100 && <Tab />}
 		</>
 	);
 };
