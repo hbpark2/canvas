@@ -1,13 +1,26 @@
 import { useContext } from "react";
 import { CurrentContext } from "../../../Context/ContextStore";
 import Tab from "../Tab/Tab";
-import { CircleBox, IntroSection, IntroCenter, IntroTop, IntroCenterText, Line } from "./styles";
+import {
+	CircleBox,
+	IntroSection,
+	IntroCenter,
+	IntroTop,
+	IntroCenterText,
+	Line,
+	FirstSection,
+} from "./styles";
 
 const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 	const { tabState } = useContext(CurrentContext);
 
 	return (
 		<>
+			<FirstSection scrl={scrollY}>
+				LALALA
+				<br />
+				LALALALALALA
+			</FirstSection>
 			<CircleBox scrl={scrollY}>
 				<h3 className="blind">intro</h3>
 				<IntroSection>
@@ -20,9 +33,9 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 						<IntroCenterText scrl={scrollY}>7ransis7or</IntroCenterText>
 					</IntroCenter>
 				</IntroSection>
-				{scrollY < 1100 && <Tab />}
+				{scrollY < 1300 && <Tab />}
 			</CircleBox>
-			{scrollY > 1100 && <Tab />}
+			{scrollY > 1300 && <Tab />}
 		</>
 	);
 };

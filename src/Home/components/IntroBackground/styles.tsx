@@ -126,6 +126,42 @@ export const CircleBox = styled.article<{ scrl: number }>`
 	}
 `;
 
+export const FirstSection = styled.div<{ scrl: number }>`
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: ${({ theme: { fullHeight } }) => fullHeight};
+	color: ${({ theme: { accentColor } }) => accentColor};
+	font-family: ${({ theme: { accentFont } }) => accentFont};
+	font-size: 45px;
+	text-align: center;
+	transition: opacity 1s, transform 1s, filter 1s;
+	animation: ${FadeIn} 1s;
+	filter: blur(0.5px);
+
+	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+		${({ scrl }) =>
+			scrl > 600
+				? css`
+						display: none;
+				  `
+				: scrl > 200
+				? css`
+						display: flex;
+						opacity: 0;
+				  `
+				: css`
+						display: flex;
+						opacity: 1;
+						filter: blur(0.5px);
+				  `}
+	}
+
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		display: none;
+	}
+`;
+
 export const IntroSection = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -232,7 +268,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 				? css`
 						opacity: 1;
 						transform: translateY(-30px);
-						filter: blur(1px);
+						filter: blur(0.5px);
 				  `
 				: css`
 						opacity: 0;

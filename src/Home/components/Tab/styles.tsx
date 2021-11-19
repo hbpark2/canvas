@@ -11,7 +11,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	animation: ${FadeIn} 1s;
 
 	${({ scrl }) =>
-		scrl > 1100
+		scrl > 1300
 			? css`
 					position: fixed;
 					left: auto;
