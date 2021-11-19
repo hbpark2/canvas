@@ -27,14 +27,13 @@ const Header = () => {
 						return (
 							<NavList
 								key={`tab${index}`}
+								onClick={() => onTabClick(item)}
 								onMouseOver={() => changeCursorState("bigger")}
 								onMouseOut={() => changeCursorState("")}
 								index={index === 1 ? 2.5 : index === 3 ? 3.5 : index === 0 ? 1 : index}
 								menuOpen={menuOpen}
 							>
-								<LinkButton onClick={() => onTabClick(item)} current={tabState.id === index + 1}>
-									0{index + 1}
-								</LinkButton>
+								<LinkButton current={tabState.id === index + 1}>0{index + 1}</LinkButton>
 								<LinkSpan>{item.text}</LinkSpan>
 							</NavList>
 						);

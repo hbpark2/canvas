@@ -7,6 +7,7 @@ declare module "styled-components" {
 		bgColor3: string;
 		accentFont: string;
 		accentColor: string;
+		fullHeight: string;
 		deviceScreenMax: { [T in "mobile" | "tablet" | "laptop"]: string };
 		deviceScreenMin: { [T in "mobile" | "tablet" | "laptop" | "wide"]: string };
 	}

@@ -28,6 +28,7 @@ export const commonTheme: DefaultTheme = {
 	bgColor3: "#9a7951",
 	accentColor: "#e4cbac",
 	accentFont: '"Cormorant Garamond", serif',
+	fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
 	deviceScreenMax: deviceMax,
 	deviceScreenMin: deviceMin,
 };
@@ -38,6 +39,7 @@ export const brownTheme: DefaultTheme = {
 	bgColor3: "#706260",
 	accentColor: "#7B979E",
 	accentFont: '"Cormorant Garamond", serif',
+	fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
 	deviceScreenMax: deviceMax,
 	deviceScreenMin: deviceMin,
 };

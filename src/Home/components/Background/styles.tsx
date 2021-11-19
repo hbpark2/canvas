@@ -30,7 +30,7 @@ export const Container = styled.div<{ blur: boolean }>`
 	position: fixed;
 	top: 0;
 	width: 100%;
-	height: 100vh;
+	height: ${({ theme: { fullHeight } }) => fullHeight};
 	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
 	transition: filter 0.5s;
@@ -43,7 +43,7 @@ export const Container = styled.div<{ blur: boolean }>`
 
 export const Inner = styled.div`
 	width: 98vw;
-	height: 100vh;
+	height: ${({ theme: { fullHeight } }) => fullHeight};
 	animation-name: ${RightToLeft};
 	animation-duration: 2s;
 
@@ -59,7 +59,7 @@ export const LoopContainer = styled.div`
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 100vh;
+	height: ${({ theme: { fullHeight } }) => fullHeight};
 	transition: background-color 0.5s;
 	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
 `;
@@ -70,7 +70,7 @@ export const LoopWrap = styled.div`
 	transform: rotate(15deg);
 	flex-flow: row nowrap;
 	width: 150vw;
-	height: 100vh;
+	height: ${({ theme: { fullHeight } }) => fullHeight};
 	left: 50%;
 	margin-left: -50vw;
 	margin-top: 20%;

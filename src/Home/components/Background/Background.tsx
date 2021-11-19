@@ -38,7 +38,6 @@ const Background: React.FC = () => {
 				setBlur(true);
 			} else {
 				setBlur(false);
-				
 			}
 		}
 	}, [scrollY]);
