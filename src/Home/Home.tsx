@@ -4,6 +4,7 @@ import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
 import Bubble2 from "../Assets/bubble1.jpg";
+import Portrait from "../Assets/portrait-2.jpg";
 import { Container, Image, ImageWrap, ImgSection, TextWrap } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import { CurrentContext } from "../Context/ContextStore";
@@ -42,18 +43,7 @@ const Home = () => {
 						<ImgSection scrl={scrollY} aria-hidden={!loading}>
 							<ImageWrap>
 								<Image
-									src={Bubble2}
-									alt=""
-									onMouseOver={() => changeCursorState("biggerInvert")}
-									onMouseOut={() => changeCursorState("")}
-								/>
-							</ImageWrap>
-							<TextWrap></TextWrap>
-						</ImgSection>
-						<ImgSection scrl={scrollY} aria-hidden={!loading}>
-							<ImageWrap>
-								<Image
-									src={Bubble2}
+									src={Portrait}
 									alt=""
 									onMouseOver={() => changeCursorState("biggerInvert")}
 									onMouseOut={() => changeCursorState("")}

@@ -10,9 +10,15 @@ const CursorTail = styled.div<{
 	left: 50%;
 	border-radius: 50%;
 	opacity: 1;
+	display: flex;
+	color: ${({ theme: { accentColor } }) => accentColor};
+	font-family: ${({ theme: { accentFont } }) => accentFont};
+	justify-content: center;
+	align-items: center;
 	width: 80px;
 	height: 80px;
-	border: 1px solid #bababa;
+	/* border: 1px solid #bababa; */
+	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	transform: translate(-50%, -50%);
 	transform-origin: 50% 50%;
 	transition: transform 0.5s ease-in-out;
@@ -94,7 +100,9 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 
 	return (
 		<>
-			<CursorTail className="cursor-tail" role="cursor" currentPosition={currentPosition} />
+			<CursorTail className="cursor-tail" role="cursor" currentPosition={currentPosition}>
+				{currentPosition === "biggerLink" && "go Detail"}
+			</CursorTail>
 			<CursorDot
 				style={{
 					left: `${position.x}px`,

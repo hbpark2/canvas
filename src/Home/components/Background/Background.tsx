@@ -26,6 +26,7 @@ const Background: React.FC = () => {
 		}, 50);
 		setLoading(true);
 	}, [tabState]);
+
 	useEffect(() => {
 		if (window.innerWidth > 639) {
 			if (scrollY > 800) {

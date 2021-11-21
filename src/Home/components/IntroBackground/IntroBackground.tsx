@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CurrentContext } from "../../../Context/ContextStore";
 import Tab from "../Tab/Tab";
+import { TabArr } from "../Tab/tabdata";
 import {
 	CircleBox,
 	IntroSection,
@@ -12,14 +13,18 @@ import {
 } from "./styles";
 
 const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
-	const { tabState } = useContext(CurrentContext);
+	const { tabState, changeCursorState } = useContext(CurrentContext);
+	console.log(scrollY);
 
 	return (
 		<>
 			<FirstSection scrl={scrollY}>
 				Hello
 				<br />
-				Stranger
+				This is Jake
+				<br />
+				if you wanna keep seeing this page <br />
+				scroll down plz
 			</FirstSection>
 			<CircleBox scrl={scrollY}>
 				<h3 className="blind">intro</h3>
@@ -27,10 +32,16 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 					<IntroTop scrl={scrollY}>
 						<span>Selected Art&amp;Works</span>
 						<Line />
-						<span>&#40; {tabState.theme} - 04 &#41;</span>
+						<span>
+							&#40; 0{tabState.id} - 0{TabArr.length} &#41;
+						</span>
 					</IntroTop>
-					<IntroCenter scrl={scrollY}>
-						<IntroCenterText scrl={scrollY}>7ransis7or</IntroCenterText>
+					<IntroCenter
+						scrl={scrollY}
+						onMouseOver={() => changeCursorState("biggerLink")}
+						onMouseOut={() => changeCursorState("")}
+					>
+						<IntroCenterText scrl={scrollY}>{tabState.text}</IntroCenterText>
 					</IntroCenter>
 				</IntroSection>
 				{scrollY < 1300 && <Tab />}

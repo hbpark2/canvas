@@ -168,6 +168,9 @@ export const IntroSection = styled.div`
 	justify-content: center;
 	align-items: center;
 	z-index: 1;
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		margin-bottom: 60px;
+	}
 `;
 
 export const IntroTop = styled.div<{ scrl: number }>`
@@ -233,12 +236,14 @@ export const Line = styled.i`
 `;
 
 export const IntroCenter = styled.p<{ scrl: number }>`
-	overflow: hidden;
+	/* overflow: hidden; */
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-		opacity: 0;
+		/* opacity: 0; */
 		animation: ${SlideUpMo} 2s;
 		animation-delay: 1s;
 		animation-fill-mode: both;
+		overflow: hidden;
+		transform: translateY(-50px);
 	}
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
@@ -248,14 +253,15 @@ export const IntroCenter = styled.p<{ scrl: number }>`
 
 export const IntroCenterText = styled.span<{ scrl: number }>`
 	display: block;
-	font-size: 150px;
+	font-size: 140px;
 	line-height: 1em;
 	font-family: ${({ theme: { accentFont } }) => accentFont};
-	font-style: italic;
+	/* font-style: italic; */
 	color: ${({ theme: { accentColor } }) => accentColor};
-	transform: translateY(-30px);
+	text-align: center;
 	transition: opacity 1s, transform 1s, color 0.5s;
 	text-shadow: ${({ theme: { textShadow } }) => textShadow};
+
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		font-size: 80px;
 		vertical-align: top;

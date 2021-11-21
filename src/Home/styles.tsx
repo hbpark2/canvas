@@ -68,7 +68,7 @@ export const Image = styled.img`
 	}
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-		width: 55%;
+		width: 45%;
 		opacity: 1;
 		filter: blur(0px);
 	}
