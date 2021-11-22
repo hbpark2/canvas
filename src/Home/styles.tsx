@@ -21,6 +21,17 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	z-index: 1;
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		${({ scrl }) =>
+			scrl > 800
+				? css`
+						opacity: 1;
+				  `
+				: css`
+						opacity: 0;
+						top: 1300px;
+				  `}
+	}
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
 		${({ scrl }) =>

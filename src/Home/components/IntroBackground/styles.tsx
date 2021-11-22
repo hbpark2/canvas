@@ -78,18 +78,28 @@ export const CircleBox = styled.article<{ scrl: number }>`
 
 	// MOBILE
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-		position: relative;
+		/* position: relative;
 		left: 0;
-		transform: none;
+		transform: none; */
 		width: 300px;
 		height: 300px;
-		margin: 200px auto 250px;
+		/* margin: 200px auto 250px; */
 		filter: none;
 		&::after,
 		&::before {
 			width: 300px;
 			height: 300px;
 		}
+
+		${({ scrl }) =>
+			scrl > 800
+				? css`
+						position: relative;
+						margin-top: 1300px;
+				  `
+				: css`
+						position: fixed;
+				  `}
 	}
 
 	// NOMAL PC
@@ -139,26 +149,25 @@ export const FirstSection = styled.div<{ scrl: number }>`
 	animation: ${FadeIn} 1s;
 	filter: blur(0.5px);
 
-	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
-		${({ scrl }) =>
-			scrl > 600
-				? css`
-						display: none;
-				  `
-				: scrl > 200
-				? css`
-						display: flex;
-						opacity: 0;
-				  `
-				: css`
-						display: flex;
-						opacity: 1;
-						filter: blur(0.5px);
-				  `}
-	}
+	${({ scrl }) =>
+		scrl > 600
+			? css`
+					display: none;
+			  `
+			: scrl > 200
+			? css`
+					display: flex;
+					opacity: 0;
+			  `
+			: css`
+					display: flex;
+					opacity: 1;
+					filter: blur(0.5px);
+			  `}
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-		display: none;
+		/* display: none; */
+		font-size: 22px;
 	}
 `;
 
@@ -200,10 +209,21 @@ export const IntroTop = styled.div<{ scrl: number }>`
 		width: 100%;
 		transform: translateY(-50px);
 		filter: none;
-		animation: ${SlideUpMoTop} 2s;
+		/* animation: ${SlideUpMoTop} 2s; */
 		span:last-of-type {
 			flex: 1.6;
 		}
+
+		${({ scrl }) =>
+			scrl > 50
+				? css`
+						opacity: 1;
+						transform: translateY(-50px);
+				  `
+				: css`
+						opacity: 0;
+						transform: translateY(50px);
+				  `}
 	}
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
@@ -266,6 +286,17 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
 		font-size: 80px;
 		vertical-align: top;
 		filter: none;
+
+		${({ scrl }) =>
+			scrl > 300
+				? css`
+						opacity: 1;
+						transform: translateY(0px);
+				  `
+				: css`
+						opacity: 0;
+						transform: translateY(100px);
+				  `};
 	}
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
