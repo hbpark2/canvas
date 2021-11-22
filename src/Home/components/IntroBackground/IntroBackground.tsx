@@ -1,13 +1,22 @@
 import { useContext } from "react";
 import { CurrentContext } from "../../../Context/ContextStore";
 import Tab from "../Tab/Tab";
-import { CircleBox, IntroSection, IntroCenter, IntroTop, IntroCenterText, Line } from "./styles";
+import {
+	CircleBox,
+	IntroSection,
+	IntroCenter,
+	IntroTop,
+	IntroCenterText,
+	Line,
+	FirstSection,
+} from "./styles";
 
 const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 	const { tabState } = useContext(CurrentContext);
 
 	return (
 		<>
+			<FirstSection scrl={scrollY}>lululu</FirstSection>
 			<CircleBox scrl={scrollY}>
 				<h3 className="blind">intro</h3>
 				<IntroSection>
