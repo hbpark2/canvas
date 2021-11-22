@@ -25,6 +25,10 @@ const Container = styled.div`
 	animation: ${NoiseAni} 0.8s steps(10) infinite;
 	pointer-events: none;
 	z-index: 105;
+
+	/* @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		display: none;
+	} ; */
 `;
 
 const Noise = () => {

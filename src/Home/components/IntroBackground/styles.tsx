@@ -167,7 +167,9 @@ export const FirstSection = styled.div<{ scrl: number }>`
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		/* display: none; */
-		font-size: 22px;
+		filter: none;
+		font-size: 30px;
+		font-weight: 800;
 	}
 `;
 

@@ -23,7 +23,7 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 				<br />
 				This is Jake
 				<br />
-				if you wanna keep seeing this page <br />
+				if you wanna {window.innerWidth < 640 && <br />} keep seeing this page <br />
 				scroll down plz
 			</FirstSection>
 			<CircleBox scrl={scrollY}>
