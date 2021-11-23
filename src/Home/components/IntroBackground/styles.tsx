@@ -81,14 +81,14 @@ export const CircleBox = styled.article<{ scrl: number }>`
 		/* position: relative;
 		left: 0;
 		transform: none; */
-		width: 300px;
-		height: 300px;
+		width: 280px;
+		height: 280px;
 		/* margin: 200px auto 250px; */
 		filter: none;
 		&::after,
 		&::before {
-			width: 300px;
-			height: 300px;
+			width: 280px;
+			height: 280px;
 		}
 
 		${({ scrl }) =>

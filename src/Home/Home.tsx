@@ -3,7 +3,6 @@ import Cursor from "../Components/Common/Cursor";
 import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
-import Bubble2 from "../Assets/bubble1.jpg";
 import Portrait from "../Assets/portrait-2.jpg";
 import { Container, Image, ImageWrap, ImgSection, TextWrap } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
@@ -49,7 +48,27 @@ const Home = () => {
 									onMouseOut={() => changeCursorState("")}
 								/>
 							</ImageWrap>
-							<TextWrap></TextWrap>
+							<TextWrap>
+								<dl>
+									<dt>Name</dt>
+									<dd>-Jake</dd>
+								</dl>
+								<dl>
+									<dt>Skill</dt>
+									<dd>
+										<ul>
+											<li>- HTML5</li>
+											<li>- CSS3</li>
+											<li>- javascript</li>
+											<li>- React</li>
+											<li>- Prisma</li>
+											<li>- typescript</li>
+											<li>- React Native</li>
+											<li>- Git & Github</li>
+										</ul>
+									</dd>
+								</dl>
+							</TextWrap>
 						</ImgSection>
 					</>
 				)}

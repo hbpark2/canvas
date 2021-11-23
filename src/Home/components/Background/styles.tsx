@@ -38,6 +38,7 @@ export const Container = styled.div<{ blur: boolean }>`
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		overflow-x: hidden;
+		/* display: none; */
 	}
 `;
 

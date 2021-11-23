@@ -26,9 +26,9 @@ const Container = styled.div`
 	pointer-events: none;
 	z-index: 105;
 
-	/* @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-		display: none;
-	} ; */
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+		/* display: none; */
+	} ;
 `;
 
 const Noise = () => {

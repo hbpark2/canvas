@@ -21,6 +21,7 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	z-index: 1;
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
+
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		${({ scrl }) =>
 			scrl > 800
@@ -59,11 +60,27 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	}
 `;
 
-export const ImageWrap = styled.div``;
+export const ImageWrap = styled.div`
+	width: 50%;
+`;
 
 export const TextWrap = styled.div`
+	width: 50%;
 	font-family: ${({ theme: { accentFont } }) => accentFont};
+	font-weight: 400;
 	color: #e4cbac;
+	font-size: 36px;
+	line-height: 1.4em;
+
+	dl {
+		display: flex;
+		margin-bottom: 10px;
+
+		dt {
+			margin-right: 15px;
+			width: 100px;
+		}
+	}
 `;
 
 export const Image = styled.img`
@@ -72,7 +89,7 @@ export const Image = styled.img`
 	opacity: 0.9;
 	filter: blur(2px);
 	transition: all 0.5s;
-
+	margin: 0 auto;
 	&:hover {
 		opacity: 1;
 		filter: blur(0px);
