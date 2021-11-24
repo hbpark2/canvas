@@ -38,6 +38,7 @@ export const TabList = styled.li`
 	align-items: center;
 	margin: 15px 0;
 	word-break: keep-all;
+	cursor: pointer;
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		margin: 40px 0;
@@ -78,7 +79,7 @@ export const TabButton = styled.button<{ current: boolean }>`
 	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	font-size: 28px;
-	cursor: none;
+	/* cursor: none; */
 	transition: background-color 0.5s;
 	border-radius: 50%;
 
