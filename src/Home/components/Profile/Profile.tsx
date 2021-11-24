@@ -4,11 +4,11 @@ import Portrait from "../../../Assets/portrait-2.jpg";
 import { useContext } from "react";
 import { CurrentContext } from "../../../Context/ContextStore";
 
-const Profile: React.FC<{ loading: boolean }> = ({ loading }) => {
-	const { changeCursorState } = useContext(CurrentContext);
-
-	const { scrollY } = useScroll();
-
+const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: Function }> = ({
+	loading,
+	scrollY,
+	changeCursorState,
+}) => {
 	return (
 		<ImgSection scrl={scrollY} aria-hidden={!loading}>
 			<ImageWrap>

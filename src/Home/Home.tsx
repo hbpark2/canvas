@@ -6,11 +6,13 @@ import ScrollCircle from "./components/ScrollCircle";
 import { Container } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import { CurrentContext } from "../Context/ContextStore";
+import Portrait from "../Assets/portrait-2.jpg";
 
 import Profile from "./components/Profile/Profile";
+import { Image, ImageWrap, ImgSection, TextWrap } from "./components/Profile/styles";
 
 const Home = () => {
-	const { currentPosition, changeCursorState, menuOpen } = useContext(CurrentContext);
+	const { currentPosition, changeCursorState, menuOpen, tabState } = useContext(CurrentContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const { scrollY } = useScroll();
 
@@ -40,7 +42,13 @@ const Home = () => {
 				{!loading && (
 					<>
 						<IntroBackground scrollY={scrollY} />
-						<Profile loading={loading} />
+						{tabState.text === "Profile" && (
+							<Profile loading={loading} scrollY={scrollY} changeCursorState={changeCursorState} />
+						)}
+
+						{tabState.text === "TH-ROAD" && (
+							<Profile loading={loading} scrollY={scrollY} changeCursorState={changeCursorState} />
+						)}
 					</>
 				)}
 			</Container>

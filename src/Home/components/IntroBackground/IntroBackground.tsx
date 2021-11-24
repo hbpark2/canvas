@@ -14,7 +14,7 @@ import {
 
 const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
 	const { tabState, changeCursorState } = useContext(CurrentContext);
-	console.log(scrollY);
+	// console.log(scrollY);
 
 	return (
 		<>
