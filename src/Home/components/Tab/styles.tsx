@@ -87,7 +87,7 @@ export const TabButton = styled.button<{ current: boolean }>`
 		current
 			? css`
 					background-color: ${accentColor};
-					color: inherit;
+					color: ${({ theme: { bgColor1 } }) => bgColor1};
 			  `
 			: css`
 					background-color: transparent;
@@ -96,7 +96,7 @@ export const TabButton = styled.button<{ current: boolean }>`
 
 	&:hover {
 		background-color: ${({ theme: { accentColor } }) => accentColor};
-		color: inherit;
+		color: ${({ theme: { bgColor1 } }) => bgColor1};
 	}
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		width: 120px;

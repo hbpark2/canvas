@@ -93,7 +93,6 @@ const Background: React.FC = () => {
 					</Inner>
 				)}
 			</Container>
-			<Noise />
 		</>
 	);
 };

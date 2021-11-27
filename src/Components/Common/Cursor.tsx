@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
+import Drawing from "../../Assets/drawing-19.jpg";
+import Profile from "../../Assets/portrait-3.png";
 
 const CursorTail = styled.div<{
 	currentPosition?: string;
@@ -25,10 +27,14 @@ const CursorTail = styled.div<{
 
 	z-index: 999;
 	${({ currentPosition }) =>
-		currentPosition === "bigger" &&
-		css`
-			transform: scale(1.8) translate(-30%, -30%);
-		`}
+		(currentPosition === "bigger" &&
+			css`
+				transform: scale(1.8) translate(-30%, -30%);
+			`) ||
+		(currentPosition === "image" &&
+			css`
+				border: none;
+			`)}
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		display: none;
@@ -52,6 +58,11 @@ const CursorDot = styled.i`
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		display: none;
 	}
+`;
+
+const Image = styled.img`
+	width: 300px;
+	opacity: 0.7;
 `;
 
 type PostionTypes = {
@@ -101,7 +112,8 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 	return (
 		<>
 			<CursorTail className="cursor-tail" role="cursor" currentPosition={currentPosition}>
-				{currentPosition === "biggerLink" && "go Detail"}
+				{(currentPosition === "biggerLink" && "go Detail") ||
+					(currentPosition === "image" && <Image src={Profile} alt="profileimage" />)}
 			</CursorTail>
 			<CursorDot
 				style={{

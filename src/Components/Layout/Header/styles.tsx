@@ -70,15 +70,17 @@ export const Nav = styled.nav<{ menuOpen: boolean }>`
 `;
 
 export const NavUl = styled.ul`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	width: 80%;
 	transform: translateX(-10%);
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		transform: translateX(-30%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 `;
 
@@ -127,7 +129,7 @@ export const LinkButton = styled.button<{ current: boolean }>`
 		current
 			? css`
 					background-color: ${accentColor};
-					color: inherit;
+					color: ${({ theme: { bgColor2 } }) => bgColor2};
 			  `
 			: css`
 					background-color: transparent;
@@ -136,7 +138,7 @@ export const LinkButton = styled.button<{ current: boolean }>`
 
 	&:hover {
 		background-color: ${({ theme: { accentColor } }) => accentColor};
-		color: inherit;
+		color: ${({ theme: { bgColor2 } }) => bgColor2};
 	}
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {

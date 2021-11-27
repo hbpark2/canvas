@@ -6,6 +6,7 @@ const deviceSizes = {
 	mobile: 639,
 	tablet: 767,
 	laptop: 1023,
+	nomalPC: 1500,
 	wide: 1920,
 };
 
@@ -13,6 +14,7 @@ const deviceMax = {
 	mobile: `screen and (max-width: ${deviceSizes.mobile}px)`,
 	tablet: `screen and (max-width: ${deviceSizes.tablet}px)`,
 	laptop: `screen and (max-width: ${deviceSizes.laptop}px)`,
+	nomalPC: `screen and (max-width: ${deviceSizes.nomalPC}px)`,
 };
 
 const deviceMin = {
@@ -57,10 +59,10 @@ export const GlobalStyles = createGlobalStyle`
 		height:100%;
 	}
   body{
-    font-family: 'Noto Sans KR', sans-serif;  
+    font-family: 'Nanum Myeongjo', 'Noto Sans KR', sans-serif;  
+    color:${({ theme: { accentColor } }) => accentColor};
 		background-color:${(props) => props.theme.bgColor1};
 		transition: background-color 0.5s;
-		
 	}
 
   main{

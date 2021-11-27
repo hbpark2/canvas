@@ -6,10 +6,9 @@ import ScrollCircle from "./components/ScrollCircle";
 import { Container } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import { CurrentContext } from "../Context/ContextStore";
-import Portrait from "../Assets/portrait-2.jpg";
 
 import Profile from "./components/Profile/Profile";
-import { Image, ImageWrap, ImgSection, TextWrap } from "./components/Profile/styles";
+import Noise from "../Components/Common/Noise";
 
 const Home = () => {
 	const { currentPosition, changeCursorState, menuOpen, tabState } = useContext(CurrentContext);
@@ -51,6 +50,7 @@ const Home = () => {
 						)}
 					</>
 				)}
+				<Noise />
 			</Container>
 		</>
 	);

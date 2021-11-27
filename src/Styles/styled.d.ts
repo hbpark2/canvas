@@ -10,7 +10,7 @@ declare module "styled-components" {
 		accentColor: string;
 		fullHeight: string;
 		textShadow: string;
-		deviceScreenMax: { [T in "mobile" | "tablet" | "laptop"]: string };
+		deviceScreenMax: { [T in "mobile" | "tablet" | "laptop" | "nomalPC"]: string };
 		deviceScreenMin: { [T in "mobile" | "tablet" | "laptop" | "wide"]: string };
 	}
 }

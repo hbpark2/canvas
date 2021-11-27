@@ -1,15 +1,17 @@
 import styled, { css } from "styled-components";
 import { FadeIn } from "../../../Styles/animation";
 
-export const ImgSection = styled.article<{ scrl: number }>`
+export const Container = styled.article<{ scrl: number }>`
 	position: relative;
 	display: flex;
-	max-width: 1200px;
 	margin: 0 auto;
 	padding-bottom: 50px;
 	z-index: 1;
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
+
+	background-color: ${({ theme: { bgColor1 } }) => bgColor1};
+	padding: 50px 20px;
 
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
 		${({ scrl }) =>
@@ -49,42 +51,36 @@ export const ImgSection = styled.article<{ scrl: number }>`
 	}
 `;
 
-export const ImageWrap = styled.div`
-	width: 50%;
-`;
-
-export const TextWrap = styled.div`
-	width: 50%;
-	font-family: ${({ theme: { accentFont } }) => accentFont};
-	font-weight: 400;
-	color: ${({ theme: { accentColor } }) => accentColor};
-	font-size: 36px;
-	line-height: 1.4em;
-
-	dl {
-		display: flex;
-		margin-bottom: 10px;
-
-		dt {
-			margin-right: 15px;
-			width: 100px;
-		}
-	}
-`;
-
-export const Image = styled.img`
-	display: block;
-	width: 500px;
-	opacity: 0.9;
-	transition: all 0.5s;
+export const Inner = styled.div`
+	max-width: 1200px;
 	margin: 0 auto;
-	&:hover {
-		opacity: 1;
-		filter: blur(0px);
-	}
+	font-size: 42px;
+`;
 
-	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-		width: 45%;
-		opacity: 1;
+export const DescriptionList = styled.dl`
+	display: flex;
+	margin-bottom: 40px;
+
+	dt {
+		margin-right: 15px;
+		width: 100px;
+	}
+`;
+
+export const NameWrap = styled.div`
+	line-height: 1.4em;
+	dd {
+		font-size: 62px;
+	}
+`;
+
+export const SkillWrap = styled.div`
+	line-height: 1.2em;
+
+	dt {
+		margin-bottom: 10px;
+	}
+	dd {
+		font-size: 32px;
 	}
 `;

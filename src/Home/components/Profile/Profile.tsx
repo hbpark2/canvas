@@ -1,8 +1,4 @@
-import { useScroll } from "../../../Hooks/Scroll";
-import { Image, ImageWrap, ImgSection, TextWrap } from "./styles";
-import Portrait from "../../../Assets/portrait-2.jpg";
-import { useContext } from "react";
-import { CurrentContext } from "../../../Context/ContextStore";
+import { Container, Inner, NameWrap, DescriptionList, SkillWrap } from "./styles";
 
 const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: Function }> = ({
 	loading,
@@ -10,40 +6,43 @@ const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: 
 	changeCursorState,
 }) => {
 	return (
-		<ImgSection scrl={scrollY} aria-hidden={!loading}>
-			<ImageWrap>
-				<Image
-					src={Portrait}
-					alt=""
-					onMouseOver={() => changeCursorState("biggerInvert")}
+		<Container scrl={scrollY} aria-hidden={!loading}>
+			<Inner>
+				<NameWrap
+					onMouseOver={() => changeCursorState("image")}
 					onMouseOut={() => changeCursorState("")}
-				/>
-			</ImageWrap>
-			<TextWrap>
-				<dl>
-					<dt>Name</dt>
-					<dd>-Jake</dd>
-				</dl>
-				<dl>
-					<dt>Skill</dt>
-					<dd>
-						<ul>
-							<li>- HTML5</li>
-							<li>- CSS3</li>
-							<li>- javascript</li>
-							<li>- React</li>
-							<li>- Prisma</li>
-							<li>- typescript</li>
-							<li>- React Native</li>
-							<li>- Git & Github</li>
-						</ul>
-					</dd>
-				</dl>
-				{/* <a href="naver.com" rel="noopener noreferrer">
+				>
+					<DescriptionList>
+						<dt>이름</dt>
+						<dd>박형빈 @Jake</dd>
+					</DescriptionList>
+				</NameWrap>
+				<SkillWrap>
+					<dl>
+						<dt>다루는 언어, 기술</dt>
+						<dd>
+							<ul>
+								<li>- HTML5</li>
+								<li>- CSS3</li>
+								<li>- javascript</li>
+								<li>- React</li>
+								<li>- Prisma</li>
+								<li>- typescript</li>
+								<li>- React Native</li>
+								<li>- Git & Github</li>
+								<li>- AWS S3</li>
+								<li>- Heroku</li>
+								<li>- Netlifty</li>
+								<li>- Azure</li>
+							</ul>
+						</dd>
+					</dl>
+					{/* <a href="naver.com" rel="noopener noreferrer">
       aa
     </a> */}
-			</TextWrap>
-		</ImgSection>
+				</SkillWrap>
+			</Inner>
+		</Container>
 	);
 };
 

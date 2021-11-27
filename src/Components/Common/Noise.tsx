@@ -1,15 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import { keyframes } from "styled-components";
+
 import NoiseImg from "../../Assets/noise.png";
-export const NoiseAni = keyframes`
-	from {
-		background-position: 0 0;
-	}
-	to {
-		background-position: 180px 456px;
-	}
-`;
+import { NoiseAni } from "../../Styles/animation";
 
 const Container = styled.div`
 	/*noise*/
@@ -32,7 +24,7 @@ const Container = styled.div`
 `;
 
 const Noise = () => {
-	return <Container></Container>;
+	return <Container />;
 };
 
 export default Noise;

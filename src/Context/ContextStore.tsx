@@ -6,7 +6,7 @@ type StoreProviderProp = {
 	children: React.ReactNode;
 };
 
-type CursorState = "biggerInvert" | "bigger" | "biggerLink" | "";
+type CursorState = "biggerInvert" | "bigger" | "biggerLink" | "image" | "";
 
 export type TabStateType = {
 	id: number;
@@ -63,9 +63,12 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 				case "bigger":
 					setCurrentPosition("bigger");
 					break;
+
+				case "image":
+					setCurrentPosition("image");
+					break;
 				case "link":
 					setCurrentPosition("bigger");
-
 					setCurrentPosition("biggerLink");
 					break;
 

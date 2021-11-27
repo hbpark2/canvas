@@ -1,28 +1,4 @@
 import styled, { css } from "styled-components";
-// import MainImg from "../../../Assets/mvp.jpg";
-// import Drawing1 from "../../../Assets/drawing-1.jpg";
-// import Drawing2 from "../../../Assets/drawing-2.jpg";
-// import Drawing3 from "../../../Assets/drawing-3.jpg";
-// import Drawing4 from "../../../Assets/drawing-4.jpg";
-// import Drawing5 from "../../../Assets/drawing-5.jpg";
-// import Drawing6 from "../../../Assets/drawing-6.jpg";
-// import Drawing7 from "../../../Assets/drawing-7.jpg";
-// import Drawing8 from "../../../Assets/drawing-8.jpg";
-// import Drawing9 from "../../../Assets/drawing-9.jpg";
-// import Drawing10 from "../../../Assets/drawing-10.jpg";
-// import Drawing11 from "../../../Assets/drawing-11.jpg";
-// import Drawing12 from "../../../Assets/drawing-12.jpg";
-// import Drawing13 from "../../../Assets/drawing-13.jpg";
-// import Drawing14 from "../../../Assets/drawing-14.jpg";
-// import Drawing15 from "../../../Assets/drawing-15.jpg";
-// import Drawing16 from "../../../Assets/drawing-16.jpg";
-// import Drawing17 from "../../../Assets/drawing-17.jpg";
-// import Drawing18 from "../../../Assets/drawing-18.jpg";
-// import Drawing19 from "../../../Assets/drawing-19.jpg";
-// import Bubble1 from "../../../Assets/bubble1.jpg";
-// import Bubble2 from "../../../Assets/bubble2.jpg";
-// import Bubble3 from "../../../Assets/bubble3.jpg";
-// import Moon1 from "../../../Assets/moon.jpg";
 
 import { Loop, Loop2, RightToLeft } from "../../../Styles/animation";
 
@@ -36,9 +12,9 @@ export const Container = styled.div<{ blur: boolean }>`
 	transition: filter 0.5s;
 	${({ blur }) => (blur ? "filter:blur(5px)" : "filter:none")};
 
-	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.nomalPC} {
 		overflow-x: hidden;
-		/* display: none; */
+		display: none;
 	}
 `;
 

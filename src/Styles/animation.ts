@@ -9,10 +9,10 @@ export const FadeIn = keyframes`
 `;
 
 export const NoiseAni = keyframes`
-	from {
+	0% {
 		background-position: 0 0;
 	}
-	to {
+	100% {
 		background-position: 180px 456px;
 	}
 `;
