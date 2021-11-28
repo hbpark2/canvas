@@ -39,6 +39,12 @@ export const TabList = styled.li`
 	margin: 15px 0;
 	word-break: keep-all;
 	cursor: pointer;
+	&:hover {
+		button {
+			background-color: ${({ theme: { accentColor } }) => accentColor};
+			color: ${({ theme: { bgColor1 } }) => bgColor1};
+		}
+	}
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		margin: 40px 0;
@@ -94,10 +100,6 @@ export const TabButton = styled.button<{ current: boolean }>`
 					color: ${accentColor};
 			  `};
 
-	&:hover {
-		background-color: ${({ theme: { accentColor } }) => accentColor};
-		color: ${({ theme: { bgColor1 } }) => bgColor1};
-	}
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		width: 120px;
 		height: 120px;

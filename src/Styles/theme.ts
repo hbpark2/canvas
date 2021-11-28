@@ -97,12 +97,17 @@ export const GlobalStyles = createGlobalStyle`
 		overflow:unset;
 	}
 
+  // 접근성 고려한 IR 
 	.blind {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		clip: rect(0 0 0 0);
-		overflow: hidden;
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    border: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
 	}
 
 `;

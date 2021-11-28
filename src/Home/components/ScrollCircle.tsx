@@ -18,7 +18,7 @@ const Container = styled.i`
 	z-index: 101;
 	font-style: normal;
 	font-family: ${({ theme: { accentFont } }) => accentFont};
-	letter-spacing: 1.2em;
+	letter-spacing: 1em;
 	transform-origin: 50% 50%;
 	animation: ${RadiusAni} 10s infinite linear;
 	@media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {

@@ -17,6 +17,16 @@ export const NoiseAni = keyframes`
 	}
 `;
 
+export const CursorImage = keyframes`
+	0% {
+    filter: blur(10px) grayscale(100%);
+	}
+	100% {
+		filter: blur(0px) grayscale(100%);
+	}
+
+`;
+
 export const RightToLeft = keyframes`
   0% {
     opacity: 0;

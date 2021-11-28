@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Drawing from "../../Assets/drawing-19.jpg";
 import Profile from "../../Assets/portrait-3.png";
+import { CursorImage } from "../../Styles/animation";
 
 const CursorTail = styled.div<{
 	currentPosition?: string;
@@ -63,6 +64,10 @@ const CursorDot = styled.i`
 const Image = styled.img`
 	width: 300px;
 	opacity: 0.7;
+	animation: ${CursorImage} 1s;
+	animation-fill-mode: both;
+	border-bottom-left-radius: 150px;
+	border-bottom-right-radius: 150px;
 `;
 
 type PostionTypes = {
