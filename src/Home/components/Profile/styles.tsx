@@ -67,12 +67,10 @@ export const NameWrap = styled.div`
 	margin: 0 auto;
 	padding: 80px 50px;
 	line-height: 1.5em;
+	& > div {
+		padding-left: 140px;
+	}
 
-	/* span,
-	p {
-		padding-bottom: 5px;
-		border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
-	} */
 	.small-span {
 		font-size: 22px;
 	}
@@ -92,57 +90,32 @@ export const NameWrap = styled.div`
 	}
 `;
 
-export const Intro = styled.div`
-	width: 90%;
-	margin: 0 auto;
+export const Intro = styled(NameWrap)`
 	padding: 50px 50px 0 50px;
-	line-height: 1.4em;
 
 	&::before {
 		content: "(01)-intro";
-		display: block;
-		font-family: ${({ theme: { accentFont } }) => accentFont};
-		margin-bottom: 10px;
-		text-align: start;
-		font-size: 24px;
-		line-height: 1em;
 	}
 `;
 
 export const IntroParagraph = styled.p`
 	margin: 20px 0;
-	padding-left: 140px;
 	font-size: 20px;
 	line-height: 1.5em;
-`;
-
-export const IntroText = styled.p`
-	font-size: 32px;
-	line-height: 1.4em;
 `;
 
 export const NameSpan = styled.span`
 	font-size: 24px;
 `;
 
-export const Skill = styled.div`
-	width: 90%;
-	margin: 0 auto;
+export const Skill = styled(NameWrap)`
 	padding: 50px 50px 0 50px;
-	line-height: 1.4em;
 	&::before {
 		content: "(02)-skill";
-		display: block;
-		font-family: ${({ theme: { accentFont } }) => accentFont};
-		margin-bottom: 10px;
-		text-align: start;
-		font-size: 24px;
-		line-height: 1em;
 	}
 `;
 
 export const SkillWrap = styled.div`
-	padding-left: 140px;
 	font-size: 22px;
 	ul {
 		display: grid;
@@ -150,30 +123,11 @@ export const SkillWrap = styled.div`
 	}
 `;
 
-export const DescriptionList = styled.dl`
-	display: flex;
-	margin-bottom: 40px;
-
-	dt {
-		margin-right: 15px;
-		width: 100px;
-	}
-`;
-
-export const Career = styled.div`
-	width: 90%;
-	margin: 0 auto;
+export const Career = styled(NameWrap)`
 	padding: 50px 50px 0 50px;
-	line-height: 1.4em;
 	min-height: 100vh;
 	&::before {
 		content: "(03)-career";
-		display: block;
-		font-family: ${({ theme: { accentFont } }) => accentFont};
-		margin-bottom: 10px;
-		text-align: start;
-		font-size: 24px;
-		line-height: 1em;
 	}
 `;
 
