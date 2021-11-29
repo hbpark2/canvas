@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { CurrentContext } from "../../../Context/ContextStore";
 import {
 	Container,
 	Inner,
@@ -7,6 +9,7 @@ import {
 	SkillWrap,
 	IntroParagraph,
 	Career,
+	CareerInner,
 } from "./styles";
 
 const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: Function }> = ({
@@ -33,7 +36,7 @@ const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: 
 
 				<Intro>
 					<h3 className="blind">Intro</h3>
-					{/* <IntroParagraph>
+					<IntroParagraph>
 						저는 믿음이 없는 사람입니다.
 						<br />
 						"사람의 의지, 능력"에 관하여 믿음이 없죠. <br />
@@ -56,7 +59,8 @@ const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: 
 						그 속에 코드를 던져
 						<br />
 						만족스런 결과를 얻습니다.
-					</IntroParagraph> */}
+					</IntroParagraph>
+
 					{/* <IntroParagraph>
 						프로덕트의 발전을 즐깁니다.
 						<br />
@@ -68,6 +72,7 @@ const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: 
 						<br />
 						저의 일이자 취미입니다.
 					</IntroParagraph> */}
+
 					{/* <IntroParagraph>
 						저는 1년차 프론트엔드 개발자 박형빈입니다. <br />
 						내부적으로, 외부적으로 보기 좋은 프로덕트를 <br />
@@ -75,12 +80,14 @@ const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: 
 						<br />
 					</IntroParagraph> */}
 
-					<IntroParagraph>
+					{/* <IntroParagraph>
+						저는 1년차 프론드엔드 개발자입니다.
+						<br />
 						견고하고 근거있는 HTML 구조위에서 <br />
 						CSS, react의 styled-component, JS 등을 이용해 <br />
 						감각적이고 동적인 UI를 구현 하는 것을 즐긴다.
 						<br />
-					</IntroParagraph>
+					</IntroParagraph> */}
 				</Intro>
 
 				{/* <IntroText>
@@ -112,7 +119,14 @@ const Profile: React.FC<{ loading: boolean; scrollY: number; changeCursorState: 
 					</SkillWrap>
 				</Skill>
 
-				<Career></Career>
+				<Career>
+					<h3 className="blind">Project</h3>
+					<CareerInner>
+						<h4>TH-ROAD</h4>
+						<span>디자이너 포트폴리오 ( 개인외주 )</span>
+						<p>컨셉, 주요기능</p>
+					</CareerInner>
+				</Career>
 			</Inner>
 		</Container>
 	);

@@ -48,6 +48,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
 		bgImage: Bubble1,
 		text: "Profile",
 	});
+
 	const [menuOpen, setMenuOpen] = useState<boolean>(false);
 	const [currentPosition, setCurrentPosition] = useState<CursorState>("");
 	const [invert, setInvert] = useState<boolean>(false);

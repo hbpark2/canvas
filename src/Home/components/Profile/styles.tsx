@@ -10,7 +10,7 @@ export const Container = styled.article<{ scrl: number }>`
 	animation-name: ${FadeIn};
 	animation-duration: 1s;
 	/* background-color: ${({ theme: { bgColor1 } }) => bgColor1}; */
-	font-size: 42px;
+	font-size: 22px;
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, rgba(0, 0, 0, 1) 92%, rgba(77, 94, 101, 0) 100%);
 	padding: 100px 20px;
@@ -59,7 +59,7 @@ export const Inner = styled.div`
 	width: 90%;
 	max-width: 1200px;
 	margin: 0 auto;
-	font-size: 42px;
+	font-size: 22px;
 `;
 
 export const NameWrap = styled.div`
@@ -102,6 +102,7 @@ export const IntroParagraph = styled.p`
 	margin: 20px 0;
 	font-size: 20px;
 	line-height: 1.5em;
+	padding-left: 140px;
 `;
 
 export const NameSpan = styled.span`
@@ -130,6 +131,8 @@ export const Career = styled(NameWrap)`
 		content: "(03)-career";
 	}
 `;
+
+export const CareerInner = styled.div``;
 
 // export const Career = styled.div`
 // 	div {

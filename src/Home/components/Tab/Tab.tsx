@@ -8,7 +8,7 @@ const Tab = () => {
 	const { changeCursorState, onTabClick, tabState } = useContext(CurrentContext);
 
 	const { scrollY } = useScroll();
-
+	console.log(scrollY);
 	return (
 		<TabContainer scrl={scrollY}>
 			{TabArr.map((item, index) => {

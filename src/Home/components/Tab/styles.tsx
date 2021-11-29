@@ -6,7 +6,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	top: 50%;
 	left: calc(50% + 430px);
 	transform: translate(-50%, -50%);
-	transition: filter 0.5s;
+	transition: filter 0.5s opacity 0.5s visibility 0.5s;
 	z-index: 200;
 	animation: ${FadeIn} 1s;
 	min-width: 150px;
