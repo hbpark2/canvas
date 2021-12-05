@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CurrentContext } from "../../../Context/ContextStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,12 +11,11 @@ import {
   IntroParagraph,
   Career,
   CareerInner,
-  CareerItem,
-  CareerParagraph,
-  Line,
   GitHubLinkWrap,
 } from "./styles";
 import { faAmazon, faGithub } from "@fortawesome/free-brands-svg-icons";
+import CareerItem from "./components/CareerItem";
+import { careerArr } from "./components/careerData";
 
 const Profile: React.FC<{
   loading: boolean;
@@ -41,6 +40,19 @@ const Profile: React.FC<{
           <br />
         </NameWrap>
 
+        <Intro>
+          <h3 className="blind">Intro</h3>
+
+          <IntroParagraph>
+            I'm Front-end developer based in Seoul, Korea
+            <br />
+            {/* <span>HTML5 & CSS3</span>
+            <br />
+            구조화와 정보전달에 목적을 둔 HTML 마크업 */}
+            {/* <blockquote>(What is HTML - W3C standards HTML & CSS)</blockquote> */}
+          </IntroParagraph>
+        </Intro>
+
         <GitHubLinkWrap>
           <FontAwesomeIcon icon={faGithub} size="lg" />
           <a
@@ -51,17 +63,6 @@ const Profile: React.FC<{
             Go To GitHub
           </a>
         </GitHubLinkWrap>
-
-        <Intro>
-          <h3 className="blind">Intro</h3>
-
-          <IntroParagraph>
-            <span>HTML5 & CSS3</span>
-            <br />
-            구조화와 정보전달에 목적을 둔 HTML 마크업
-            {/* <blockquote>(What is HTML - W3C standards HTML & CSS)</blockquote> */}
-          </IntroParagraph>
-        </Intro>
 
         <Skill>
           <h3 className="blind">Skills</h3>
@@ -90,93 +91,24 @@ const Profile: React.FC<{
         <Career>
           <h3 className="blind">Project</h3>
           <CareerInner>
-            <CareerItem>
-              <h4>
-                <span className="career-title">TH-ROAD</span>
-                <span className="career-subtitle">
-                  디자이너 포트폴리오 ( 개인외주 )
-                </span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>
-                엑심베이의 반응형 웹 전자결제 모듈입니다.
-                <br />
-                프론트엔드 중 웹접근성을 갖춘 HTML 구조와 반응형 스타일,
-                <br />
-                사용자 인터렉션 위주의 자바스크립트를 담당했습니다 .<br />
-                pc 우선 반응형 / 웹 접근성
-              </CareerParagraph>
-              <Line />
-            </CareerItem>
-
-            <CareerItem>
-              <h4>
-                <span className="career-title">K-MAS-2021</span>
-                <span className="career-subtitle">
-                  중소벤처기업부 ( 이벤트 사이트 )
-                </span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>컨셉, 주요기능</CareerParagraph>
-              <Line />
-            </CareerItem>
-
-            <CareerItem>
-              <h4>
-                <span className="career-title">화목</span>
-                <span className="career-subtitle">화목 ( 개인 프로젝트 )</span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>컨셉, 주요기능</CareerParagraph>
-              <Line />
-            </CareerItem>
-
-            <CareerItem>
-              <h4>
-                <span className="career-title">K-SALE-2021</span>
-                <span className="career-subtitle">
-                  동행세일 ( 이벤트 사이트 )
-                </span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>컨셉, 주요기능</CareerParagraph>
-              <Line />
-            </CareerItem>
-
-            <CareerItem>
-              <h4>
-                <span className="career-title">K-MAS-2020</span>
-                <span className="career-subtitle">
-                  중소벤처기업부 ( 이벤트 사이트 )
-                </span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>컨셉, 주요기능</CareerParagraph>
-              <Line />
-            </CareerItem>
-
-            <CareerItem>
-              <h4>
-                <span className="career-title">orderffrice</span>
-                <span className="career-subtitle">
-                  쇼핑몰 ( 사내 사이드프로젝트 )
-                </span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>컨셉, 주요기능</CareerParagraph>
-              <Line />
-            </CareerItem>
-
-            <CareerItem>
-              <h4>
-                <span className="career-title">Mutaccato</span>
-                <span className="career-subtitle">
-                  디자이너 포트폴리오 ( 개인외주 )
-                </span>
-                <span className="date">2021.11.01 ~ 2021.12.31</span>
-              </h4>
-              <CareerParagraph>컨셉, 주요기능</CareerParagraph>
-            </CareerItem>
+            {careerArr.map((item, index) => (
+              <CareerItem
+                key={`career${index}`}
+                title={item.title}
+                subTitle={item.subTitle}
+                date={item.date}
+              >
+                {item.children.split("<br />").map((line, index) => {
+                  let makeSpanKey = `line${index}`;
+                  return (
+                    <React.Fragment key={makeSpanKey}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  );
+                })}
+              </CareerItem>
+            ))}
           </CareerInner>
         </Career>
       </Inner>
