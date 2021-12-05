@@ -3,52 +3,53 @@ import reset from "styled-reset";
 
 // Media query
 const deviceSizes = {
-	mobile: 639,
-	tablet: 767,
-	laptop: 1023,
-	nomalPC: 1500,
-	wide: 1920,
+  mobile: 639,
+  tablet: 767,
+  laptop: 1023,
+  nomalPC: 1500,
+  wide: 1920,
 };
 
 const deviceMax = {
-	mobile: `screen and (max-width: ${deviceSizes.mobile}px)`,
-	tablet: `screen and (max-width: ${deviceSizes.tablet}px)`,
-	laptop: `screen and (max-width: ${deviceSizes.laptop}px)`,
-	nomalPC: `screen and (max-width: ${deviceSizes.nomalPC}px)`,
+  mobile: `screen and (max-width: ${deviceSizes.mobile}px)`,
+  tablet: `screen and (max-width: ${deviceSizes.tablet}px)`,
+  laptop: `screen and (max-width: ${deviceSizes.laptop}px)`,
+  nomalPC: `screen and (max-width: ${deviceSizes.nomalPC}px)`,
 };
 
 const deviceMin = {
-	mobile: `screen and (min-width: ${deviceSizes.mobile + 1}px)`,
-	tablet: `screen and (min-width: ${deviceSizes.tablet + 1}px)`,
-	laptop: `screen and (min-width: ${deviceSizes.laptop + 1}px)`,
-	wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
+  mobile: `screen and (min-width: ${deviceSizes.mobile + 1}px)`,
+  tablet: `screen and (min-width: ${deviceSizes.tablet + 1}px)`,
+  laptop: `screen and (min-width: ${deviceSizes.laptop + 1}px)`,
+  wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
 };
 
 export const navyTheme: DefaultTheme = {
-	bgColor1: "#4d5e65",
-	bgColor2: "#706260",
-	bgColor3: "#9a7951",
-	accentColor: "#e4cbac",
-	accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
-	defaultFont: '"Nanum Myeongjo", serif',
-	textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-	fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
-	deviceScreenMax: deviceMax,
-	deviceScreenMin: deviceMin,
+  bgColor1: "#4d5e65",
+  bgColor2: "#706260",
+  bgColor3: "#9a7951",
+  accentColor: "#e4cbac",
+  accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
+  defaultFont: '"Nanum Myeongjo", serif',
+  paragraphFont: '"Nanum Gothic", serif',
+  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+  fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
+  deviceScreenMax: deviceMax,
+  deviceScreenMin: deviceMin,
 };
 
 export const skyblueTheme: DefaultTheme = {
-	bgColor1: "#8ACAEB",
-	bgColor2: "#4d5e65",
-	bgColor3: "#706260",
-	// accentColor: "#76A88B",
-	accentColor: "#fff",
-	accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
-	defaultFont: '"Nanum Myeongjo", serif',
-	textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-	fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
-	deviceScreenMax: deviceMax,
-	deviceScreenMin: deviceMin,
+  bgColor1: "#8ACAEB",
+  bgColor2: "#4d5e65",
+  bgColor3: "#706260",
+  accentColor: "#fff",
+  accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
+  defaultFont: '"Nanum Myeongjo", serif',
+  paragraphFont: '"Nanum Gothic", serif',
+  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+  fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
+  deviceScreenMax: deviceMax,
+  deviceScreenMin: deviceMin,
 };
 
 //global
