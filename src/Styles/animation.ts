@@ -24,7 +24,15 @@ export const CursorImage = keyframes`
 	100% {
 		filter: blur(0px) grayscale(100%);
 	}
+`;
 
+export const JakeImage = keyframes`
+	0% {
+    filter: blur(10px) ;
+	}
+	100% {
+		filter: blur(0px) ;
+	}
 `;
 
 export const RightToLeft = keyframes`

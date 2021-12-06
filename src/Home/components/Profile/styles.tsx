@@ -21,6 +21,8 @@ export const Container = styled.article<{ scrl: number }>`
   padding-left: 160px;
   font-family: ${({ theme: { defaultFont } }) => defaultFont};
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding-left: 0;
+
     ${({ scrl }) =>
       scrl > 800
         ? css`
@@ -99,6 +101,24 @@ export const NameWrap = styled.div`
     font-size: 24px;
     line-height: 1em;
   }
+
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding: 20px;
+    & > div {
+      padding-left: 0px;
+    }
+    .name-span {
+      display: block;
+      font-size: 42px;
+      line-height: 1.2em;
+      font-weight: 900;
+      /* letter-spacing: inherit; */
+      margin: 10px 0 0;
+    }
+    .small-span {
+      font-size: 28px;
+    }
+  }
 `;
 
 export const Intro = styled(NameWrap)`
@@ -106,6 +126,9 @@ export const Intro = styled(NameWrap)`
 
   &::before {
     content: "(01)-intro";
+  }
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding: 20px 20px 0 20px;
   }
 `;
 
@@ -118,6 +141,24 @@ export const IntroParagraph = styled.p`
   blockquote {
     font-size: 14px;
   }
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding-left: 0;
+  }
+`;
+
+export const GitHubLinkWrap = styled.span`
+  display: flex;
+  padding-left: 190px;
+  margin-top: 20px;
+  align-items: center;
+  a {
+    margin-left: 10px;
+    line-height: 1.4em;
+    text-decoration-line: underline;
+  }
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding-left: 20px;
+  }
 `;
 
 export const NameSpan = styled.span`
@@ -128,6 +169,9 @@ export const Skill = styled(NameWrap)`
   padding: 50px 50px 0 50px;
   &::before {
     content: "(02)-skill";
+  }
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding: 20px 20px 0 20px;
   }
 `;
 
@@ -148,20 +192,13 @@ export const Career = styled(NameWrap)`
     content: "(03)-career";
     color: rgba(255, 255, 255, 0.7);
   }
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    padding: 20px 20px 0 20px;
+  }
 `;
 
 export const CareerInner = styled.div`
   color: ${({ theme: { bgColor1 } }) => bgColor1};
-`;
-
-export const GitHubLinkWrap = styled.span`
-  display: flex;
-  padding-left: 50px;
-  margin-top: 20px;
-  align-items: center;
-  a {
-    margin-left: 10px;
-  }
 `;
 
 // export const Career = styled.div`

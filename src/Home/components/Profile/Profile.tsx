@@ -59,8 +59,10 @@ const Profile: React.FC<{
             href="https://github.com/hbpark2/"
             target="_blank"
             rel="noreferrer"
+            onMouseOver={() => changeCursorState("jake")}
+            onMouseOut={() => changeCursorState("")}
           >
-            Go To GitHub
+            Go To Jake's GitHub, Let me show you how it's done
           </a>
         </GitHubLinkWrap>
 

@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <Container>
-      <Logo>Gallery</Logo>
+      <Logo>JakeTheDev</Logo>
       <MenuBtn
         onClick={onOpenMenu}
         onMouseOver={() => changeCursorState("biggerInvert")}
